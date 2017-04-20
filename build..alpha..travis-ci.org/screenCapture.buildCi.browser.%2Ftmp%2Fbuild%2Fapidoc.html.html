@@ -1,0 +1,4146 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://www.github.com/firmata/firmata.js">firmata (v0.16.0)</a>
+</h1>
+<h4>Firmata protocol implementation for programmatic interaction with Arduino and Arduino compatible development boards.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata">module firmata</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.firmata">
+            function <span class="apidocSignatureSpan"></span>firmata
+            <span class="apidocSignatureSpan">(port, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board">
+            function <span class="apidocSignatureSpan">firmata.</span>Board
+            <span class="apidocSignatureSpan">(port, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.decode">
+            function <span class="apidocSignatureSpan">firmata.</span>decode
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.encode">
+            function <span class="apidocSignatureSpan">firmata.</span>encode
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.isAcceptablePort">
+            function <span class="apidocSignatureSpan">firmata.</span>isAcceptablePort
+            <span class="apidocSignatureSpan">(port)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.requestPort">
+            function <span class="apidocSignatureSpan">firmata.</span>requestPort
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.</span>Board.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.</span>MIDI_RESPONSE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.</span>SYSEX_RESPONSE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.</span>com</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.</span>encoder7bit</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.</span>onewireutils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata.Board">module firmata.Board</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.Board">
+            function <span class="apidocSignatureSpan">firmata.</span>Board
+            <span class="apidocSignatureSpan">(port, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.decode">
+            function <span class="apidocSignatureSpan">firmata.Board.</span>decode
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.encode">
+            function <span class="apidocSignatureSpan">firmata.Board.</span>encode
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.isAcceptablePort">
+            function <span class="apidocSignatureSpan">firmata.Board.</span>isAcceptablePort
+            <span class="apidocSignatureSpan">(port)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.requestPort">
+            function <span class="apidocSignatureSpan">firmata.Board.</span>requestPort
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.Board.</span>MIDI_RESPONSE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">firmata.Board.</span>SYSEX_RESPONSE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata.Board.prototype">module firmata.Board.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype._sendOneWireRequest">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>_sendOneWireRequest
+            <span class="apidocSignatureSpan">(pin, subcommand, device, numBytesToRead, correlationId, delay, dataToWrite, event, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype._sendOneWireSearch">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>_sendOneWireSearch
+            <span class="apidocSignatureSpan">(type, event, pin, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.analogRead">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>analogRead
+            <span class="apidocSignatureSpan">(pin, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.analogWrite">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>analogWrite
+            <span class="apidocSignatureSpan">(pin, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.digitalRead">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>digitalRead
+            <span class="apidocSignatureSpan">(pin, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.digitalWrite">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>digitalWrite
+            <span class="apidocSignatureSpan">(pin, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.getSamplingInterval">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>getSamplingInterval
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.i2cConfig">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cConfig
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.i2cRead">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cRead
+            <span class="apidocSignatureSpan">(address, register, bytesToRead, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.i2cReadOnce">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cReadOnce
+            <span class="apidocSignatureSpan">(address, register, bytesToRead, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.i2cStop">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cStop
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.i2cWrite">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cWrite
+            <span class="apidocSignatureSpan">(address, registerOrData, inBytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.i2cWriteReg">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cWriteReg
+            <span class="apidocSignatureSpan">(address, register, byte)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.pinMode">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>pinMode
+            <span class="apidocSignatureSpan">(pin, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.pingRead">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>pingRead
+            <span class="apidocSignatureSpan">(opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.pwmWrite">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>pwmWrite
+            <span class="apidocSignatureSpan">(pin, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.queryAnalogMapping">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryAnalogMapping
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.queryCapabilities">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryCapabilities
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.queryFirmware">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryFirmware
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.queryPinState">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryPinState
+            <span class="apidocSignatureSpan">(pin, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.reportAnalogPin">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reportAnalogPin
+            <span class="apidocSignatureSpan">(pin, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.reportDigitalPin">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reportDigitalPin
+            <span class="apidocSignatureSpan">(pin, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.reportVersion">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reportVersion
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.reset">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendI2CConfig">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendI2CConfig
+            <span class="apidocSignatureSpan">(delay)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendI2CReadRequest">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendI2CReadRequest
+            <span class="apidocSignatureSpan">(address, numBytes, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendI2CWriteRequest">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendI2CWriteRequest
+            <span class="apidocSignatureSpan">(slaveAddress, bytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireAlarmsSearch">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireAlarmsSearch
+            <span class="apidocSignatureSpan">(pin, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireConfig">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireConfig
+            <span class="apidocSignatureSpan">(pin, enableParasiticPower)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireDelay">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireDelay
+            <span class="apidocSignatureSpan">(pin, delay)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireRead">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireRead
+            <span class="apidocSignatureSpan">(pin, device, numBytesToRead, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireReset">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireReset
+            <span class="apidocSignatureSpan">(pin)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireSearch">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireSearch
+            <span class="apidocSignatureSpan">(pin, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireWrite">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireWrite
+            <span class="apidocSignatureSpan">(pin, device, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendOneWireWriteAndRead">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireWriteAndRead
+            <span class="apidocSignatureSpan">(pin, device, data, numBytesToRead, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sendString">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendString
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.serialClose">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialClose
+            <span class="apidocSignatureSpan">(portId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.serialConfig">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialConfig
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.serialFlush">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialFlush
+            <span class="apidocSignatureSpan">(portId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.serialListen">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialListen
+            <span class="apidocSignatureSpan">(portId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.serialRead">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialRead
+            <span class="apidocSignatureSpan">(portId, maxBytesToRead, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.serialStop">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialStop
+            <span class="apidocSignatureSpan">(portId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.serialWrite">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialWrite
+            <span class="apidocSignatureSpan">(portId, inBytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.servoConfig">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>servoConfig
+            <span class="apidocSignatureSpan">(pin, min, max)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.servoWrite">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>servoWrite
+            <span class="apidocSignatureSpan">(pin, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.setSamplingInterval">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>setSamplingInterval
+            <span class="apidocSignatureSpan">(interval)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.stepperConfig">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>stepperConfig
+            <span class="apidocSignatureSpan">(deviceNum, type, stepsPerRev, dirOrMotor1Pin, stepOrMotor2Pin, motor3Pin, motor4Pin)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.stepperStep">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>stepperStep
+            <span class="apidocSignatureSpan">(deviceNum, direction, steps, speed, accel, decel, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sysexCommand">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sysexCommand
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.Board.prototype.sysexResponse">
+            function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sysexResponse
+            <span class="apidocSignatureSpan">(commandByte, handler)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata.MIDI_RESPONSE">module firmata.MIDI_RESPONSE</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.MIDI_RESPONSE.144">
+            function <span class="apidocSignatureSpan">firmata.MIDI_RESPONSE.</span>144
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.MIDI_RESPONSE.224">
+            function <span class="apidocSignatureSpan">firmata.MIDI_RESPONSE.</span>224
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.MIDI_RESPONSE.249">
+            function <span class="apidocSignatureSpan">firmata.MIDI_RESPONSE.</span>249
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata.SYSEX_RESPONSE">module firmata.SYSEX_RESPONSE</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.106">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>106
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.108">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>108
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.110">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>110
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.113">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>113
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.114">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>114
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.115">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>115
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.117">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>117
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.119">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>119
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.121">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>121
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.66">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>66
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.67">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>67
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.69">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>69
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.SYSEX_RESPONSE.96">
+            function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>96
+            <span class="apidocSignatureSpan">(board)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata.com">module firmata.com</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.com.SerialPort">
+            function <span class="apidocSignatureSpan">firmata.com.</span>SerialPort
+            <span class="apidocSignatureSpan">(path, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.com.list">
+            function <span class="apidocSignatureSpan">firmata.com.</span>list
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata.encoder7bit">module firmata.encoder7bit</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.encoder7bit.from7BitArray">
+            function <span class="apidocSignatureSpan">firmata.encoder7bit.</span>from7BitArray
+            <span class="apidocSignatureSpan">(encoded)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.encoder7bit.to7BitArray">
+            function <span class="apidocSignatureSpan">firmata.encoder7bit.</span>to7BitArray
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.firmata.onewireutils">module firmata.onewireutils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.onewireutils.crc8">
+            function <span class="apidocSignatureSpan">firmata.onewireutils.</span>crc8
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.firmata.onewireutils.readDevices">
+            function <span class="apidocSignatureSpan">firmata.onewireutils.</span>readDevices
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata" id="apidoc.module.firmata">module firmata</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.firmata" id="apidoc.element.firmata.firmata">
+        function <span class="apidocSignatureSpan"></span>firmata
+        <span class="apidocSignatureSpan">(port, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Board(port, options, callback) {
+  if (typeof options === "function" || typeof options === "undefined") {
+    callback = options;
+    options = {};
+  }
+
+  if (!(this instanceof Board)) {
+    return new Board(port, options, callback);
+  }
+
+  Emitter.call(this);
+
+  var board = this;
+  var defaults = {
+    reportVersionTimeout: 5000,
+    samplingInterval: 19,
+    serialport: {
+      baudRate: 57600,
+      bufferSize: 256,
+    },
+  };
+
+  var settings = Object.assign({}, defaults, options);
+
+  this.isReady = false;
+
+  this.MODES = {
+    INPUT: 0x00,
+    OUTPUT: 0x01,
+    ANALOG: 0x02,
+    PWM: 0x03,
+    SERVO: 0x04,
+    SHIFT: 0x05,
+    I2C: 0x06,
+    ONEWIRE: 0x07,
+    STEPPER: 0x08,
+    SERIAL: 0x0A,
+    PULLUP: 0x0B,
+    IGNORE: 0x7F,
+    PING_READ: 0x75,
+    UNKOWN: 0x10,
+  };
+
+  this.I2C_MODES = {
+    WRITE: 0,
+    READ: 1,
+    CONTINUOUS_READ: 2,
+    STOP_READING: 3,
+  };
+
+  this.STEPPER = {
+    TYPE: {
+      DRIVER: 1,
+      TWO_WIRE: 2,
+      FOUR_WIRE: 4,
+    },
+    RUNSTATE: {
+      STOP: 0,
+      ACCEL: 1,
+      DECEL: 2,
+      RUN: 3,
+    },
+    DIRECTION: {
+      CCW: 0,
+      CW: 1,
+    },
+  };
+
+  this.SERIAL_MODES = {
+    CONTINUOUS_READ: 0x00,
+    STOP_READING: 0x01,
+  };
+
+  // ids for hardware and software serial ports on the board
+  this.SERIAL_PORT_IDs = {
+    HW_SERIAL0: 0x00,
+    HW_SERIAL1: 0x01,
+    HW_SERIAL2: 0x02,
+    HW_SERIAL3: 0x03,
+    SW_SERIAL0: 0x08,
+    SW_SERIAL1: 0x09,
+    SW_SERIAL2: 0x10,
+    SW_SERIAL3: 0x11,
+
+    // Default can be used by depender libraries to key on a
+    // single property name when negotiating ports.
+    //
+    // Firmata elects SW_SERIAL0: 0x08 as its DEFAULT
+    DEFAULT: 0x08,
+  };
+
+  // map to the pin resolution value in the capability query response
+  this.SERIAL_PIN_TYPES = {
+    RES_RX0: 0x00,
+    RES_TX0: 0x01,
+    RES_RX1: 0x02,
+    RES_TX1: 0x03,
+    RES_RX2: 0x04,
+    RES_TX2: 0x05,
+    RES_RX3: 0x06,
+    RES_TX3: 0x07,
+  };
+
+  this.RESOLUTION = {
+    ADC: null,
+    DAC: null,
+    PWM: null,
+  };
+
+  this.HIGH = 1;
+  this.LOW = 0;
+  this.pins = [];
+  this.ports = Array(16).fill(0);
+  this.analogPins = [];
+  this.version = {};
+  this.firmware = {};
+  this.currentBuffer = [];
+  this.versionReceived = false;
+  this.name = "Firmata";
+  this.settings = settings;
+  this.pending = 0;
+
+  if (typeof port === "object") {
+    this.transport = port;
+  } else {
+    this.transport = new com.SerialPort(port, settings.serialport);
+  }
+
+  // For backward compat
+  this.sp = this.transport;
+
+  this.transport.on("close", function() {
+    this.emit("close");
+  }.bind(this));
+
+  this.transport.on("disconnect", function() {
+    this.emit("disconnect");
+  }.bind(this));
+
+  this.transport.on("open", function() {
+    this.emit("open");
+    // Legacy
+    this.emit("connect");
+  }.bind(this));
+
+  this.transport.on("error", function(error) {
+    if (!this.isReady &amp;&amp; typeof callback === "function") {
+      callback(error);
+    } else {
+      this.emit("error", error);
+    }
+  }.bind(this));
+
+  this.transport.on("data", function(data) {
+    var byte, currByte, response, first, last, handler;
+
+    for (var i = 0; i &lt; data.length; i++) {
+      byte = data[i];
+      // we dont want to push 0 as the first byte on our buffer
+      if (this.currentBuffer.length === 0 &amp;&amp; byte === 0) {
+        continue;
+      } else {
+        this.currentBuffer.push(byte);
+
+        first = this.currentBuffer[0];
+        last = this.currentBuffer[this.currentBuffer.length - 1];
+
+        // [START_SYSEX, ... END_SYSEX]
+        if (first === START_SYSEX &amp;&amp; last === END_SYSEX) {
+
+          handler = SYSEX_RESPONSE[this.currentBuffer[1]];
+
+          // Ensure a valid SYSEX_RESPONSE handler exists
+          // Only process these AFTER the REPORT_VERSION
+          // message has been received and processed.
+          if (handler &amp;&amp; this.versionReceived) {
+            handler(this);
+          }
+
+          // It is possible for the board to have
+          // existing activity from a previous run
+          // that will leave any of the following
+          // active:
+          //
+          //    - ANALOG_MESSAGE ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board" id="apidoc.element.firmata.Board">
+        function <span class="apidocSignatureSpan">firmata.</span>Board
+        <span class="apidocSignatureSpan">(port, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Board(port, options, callback) {
+  if (typeof options === "function" || typeof options === "undefined") {
+    callback = options;
+    options = {};
+  }
+
+  if (!(this instanceof Board)) {
+    return new Board(port, options, callback);
+  }
+
+  Emitter.call(this);
+
+  var board = this;
+  var defaults = {
+    reportVersionTimeout: 5000,
+    samplingInterval: 19,
+    serialport: {
+      baudRate: 57600,
+      bufferSize: 256,
+    },
+  };
+
+  var settings = Object.assign({}, defaults, options);
+
+  this.isReady = false;
+
+  this.MODES = {
+    INPUT: 0x00,
+    OUTPUT: 0x01,
+    ANALOG: 0x02,
+    PWM: 0x03,
+    SERVO: 0x04,
+    SHIFT: 0x05,
+    I2C: 0x06,
+    ONEWIRE: 0x07,
+    STEPPER: 0x08,
+    SERIAL: 0x0A,
+    PULLUP: 0x0B,
+    IGNORE: 0x7F,
+    PING_READ: 0x75,
+    UNKOWN: 0x10,
+  };
+
+  this.I2C_MODES = {
+    WRITE: 0,
+    READ: 1,
+    CONTINUOUS_READ: 2,
+    STOP_READING: 3,
+  };
+
+  this.STEPPER = {
+    TYPE: {
+      DRIVER: 1,
+      TWO_WIRE: 2,
+      FOUR_WIRE: 4,
+    },
+    RUNSTATE: {
+      STOP: 0,
+      ACCEL: 1,
+      DECEL: 2,
+      RUN: 3,
+    },
+    DIRECTION: {
+      CCW: 0,
+      CW: 1,
+    },
+  };
+
+  this.SERIAL_MODES = {
+    CONTINUOUS_READ: 0x00,
+    STOP_READING: 0x01,
+  };
+
+  // ids for hardware and software serial ports on the board
+  this.SERIAL_PORT_IDs = {
+    HW_SERIAL0: 0x00,
+    HW_SERIAL1: 0x01,
+    HW_SERIAL2: 0x02,
+    HW_SERIAL3: 0x03,
+    SW_SERIAL0: 0x08,
+    SW_SERIAL1: 0x09,
+    SW_SERIAL2: 0x10,
+    SW_SERIAL3: 0x11,
+
+    // Default can be used by depender libraries to key on a
+    // single property name when negotiating ports.
+    //
+    // Firmata elects SW_SERIAL0: 0x08 as its DEFAULT
+    DEFAULT: 0x08,
+  };
+
+  // map to the pin resolution value in the capability query response
+  this.SERIAL_PIN_TYPES = {
+    RES_RX0: 0x00,
+    RES_TX0: 0x01,
+    RES_RX1: 0x02,
+    RES_TX1: 0x03,
+    RES_RX2: 0x04,
+    RES_TX2: 0x05,
+    RES_RX3: 0x06,
+    RES_TX3: 0x07,
+  };
+
+  this.RESOLUTION = {
+    ADC: null,
+    DAC: null,
+    PWM: null,
+  };
+
+  this.HIGH = 1;
+  this.LOW = 0;
+  this.pins = [];
+  this.ports = Array(16).fill(0);
+  this.analogPins = [];
+  this.version = {};
+  this.firmware = {};
+  this.currentBuffer = [];
+  this.versionReceived = false;
+  this.name = "Firmata";
+  this.settings = settings;
+  this.pending = 0;
+
+  if (typeof port === "object") {
+    this.transport = port;
+  } else {
+    this.transport = new com.SerialPort(port, settings.serialport);
+  }
+
+  // For backward compat
+  this.sp = this.transport;
+
+  this.transport.on("close", function() {
+    this.emit("close");
+  }.bind(this));
+
+  this.transport.on("disconnect", function() {
+    this.emit("disconnect");
+  }.bind(this));
+
+  this.transport.on("open", function() {
+    this.emit("open");
+    // Legacy
+    this.emit("connect");
+  }.bind(this));
+
+  this.transport.on("error", function(error) {
+    if (!this.isReady &amp;&amp; typeof callback === "function") {
+      callback(error);
+    } else {
+      this.emit("error", error);
+    }
+  }.bind(this));
+
+  this.transport.on("data", function(data) {
+    var byte, currByte, response, first, last, handler;
+
+    for (var i = 0; i &lt; data.length; i++) {
+      byte = data[i];
+      // we dont want to push 0 as the first byte on our buffer
+      if (this.currentBuffer.length === 0 &amp;&amp; byte === 0) {
+        continue;
+      } else {
+        this.currentBuffer.push(byte);
+
+        first = this.currentBuffer[0];
+        last = this.currentBuffer[this.currentBuffer.length - 1];
+
+        // [START_SYSEX, ... END_SYSEX]
+        if (first === START_SYSEX &amp;&amp; last === END_SYSEX) {
+
+          handler = SYSEX_RESPONSE[this.currentBuffer[1]];
+
+          // Ensure a valid SYSEX_RESPONSE handler exists
+          // Only process these AFTER the REPORT_VERSION
+          // message has been received and processed.
+          if (handler &amp;&amp; this.versionReceived) {
+            handler(this);
+          }
+
+          // It is possible for the board to have
+          // existing activity from a previous run
+          // that will leave any of the following
+          // active:
+          //
+          //    - ANALOG_MESSAGE ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var firmata = require('./lib/firmata.js'),
+    repl = require('repl');
+console.log('Enter USB Port and press enter:');
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+process.stdin.once('data', function(chunk) {
+    var port = chunk.replace('\n', '');
+    var board = new firmata.<span class="apidocCodeKeywordSpan">Board</span>(port, function() {
+        console.log('Successfully Connected to ' + port);
+        repl.start('firmata&gt;').context.board = board;
+    });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.decode" id="apidoc.element.firmata.decode">
+        function <span class="apidocSignatureSpan">firmata.</span>decode
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decode = function (data) {
+  var decoded = [];
+
+  if (data.length % 2 !== 0) {
+    throw new Error("Board.decode(data) called with odd number of data bytes");
+  }
+
+  while (data.length) {
+    var lsb = data.shift();
+    var msb = data.shift();
+    decoded.push(lsb | (msb &lt;&lt; 7));
+  }
+
+  return decoded;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Sysex
+
+- `board.sysexResponse(commandByte, handler)`
+
+Allow user code to handle arbitrary sysex responses. `commandByte` must be associated with some message that's expected from
+ the slave device. The `handler` is called with an array of _raw_ data from the slave. Data decoding must be done within the handler
+ itself.
+
+- Use `Board.<span class="apidocCodeKeywordSpan">decode</span>(data)` to extract useful values from the incoming response data.
+
+- `board.sysexCommand(message)`
+
+Allow user code to send arbitrary sysex messages. The `message` array is expected to be all necessary bytes between START_SYSEX
+and END_SYSEX (non-inclusive). It will be assumed that the data in the message array is already encoded as 2 7-bit bytes LSB first
+.
+
+- Use `Board.encode(data)` to encode data values into an array of 7 bit byte pairs.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.encode" id="apidoc.element.firmata.encode">
+        function <span class="apidocSignatureSpan">firmata.</span>encode
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">encode = function (data) {
+  var encoded = [];
+  var length = data.length;
+
+  for (var i = 0; i &lt; length; i++) {
+    encoded.push(
+      data[i] &amp; 0x7F,
+      (data[i] &gt;&gt; 7) &amp; 0x7F
+    );
+  }
+
+  return encoded;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+- Use `Board.decode(data)` to extract useful values from the incoming response data.
+
+- `board.sysexCommand(message)`
+
+Allow user code to send arbitrary sysex messages. The `message` array is expected to be all necessary bytes between START_SYSEX
+and END_SYSEX (non-inclusive). It will be assumed that the data in the message array is already encoded as 2 7-bit bytes LSB first
+.
+
+- Use `Board.<span class="apidocCodeKeywordSpan">encode</span>(data)` to encode data values into an array of 7 bit byte pairs.
+
+
+### Encode/Decode
+
+- `Board.encode(data)`
+
+Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.isAcceptablePort" id="apidoc.element.firmata.isAcceptablePort">
+        function <span class="apidocSignatureSpan">firmata.</span>isAcceptablePort
+        <span class="apidocSignatureSpan">(port)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isAcceptablePort = function (port) {
+  var rport = /usb|acm|^com/i;
+
+  if (rport.test(port.comName)) {
+    return true;
+  }
+
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.requestPort" id="apidoc.element.firmata.requestPort">
+        function <span class="apidocSignatureSpan">firmata.</span>requestPort
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requestPort = function (callback) {
+  com.list(function(error, ports) {
+    var port = ports.find(function(port) {
+      if (Board.isAcceptablePort(port)) {
+        return port;
+      }
+    });
+
+    if (port) {
+      callback(null, port);
+    } else {
+      callback(new Error("No Acceptable Port Found"), null);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata.Board" id="apidoc.module.firmata.Board">module firmata.Board</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.Board" id="apidoc.element.firmata.Board.Board">
+        function <span class="apidocSignatureSpan">firmata.</span>Board
+        <span class="apidocSignatureSpan">(port, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Board(port, options, callback) {
+  if (typeof options === "function" || typeof options === "undefined") {
+    callback = options;
+    options = {};
+  }
+
+  if (!(this instanceof Board)) {
+    return new Board(port, options, callback);
+  }
+
+  Emitter.call(this);
+
+  var board = this;
+  var defaults = {
+    reportVersionTimeout: 5000,
+    samplingInterval: 19,
+    serialport: {
+      baudRate: 57600,
+      bufferSize: 256,
+    },
+  };
+
+  var settings = Object.assign({}, defaults, options);
+
+  this.isReady = false;
+
+  this.MODES = {
+    INPUT: 0x00,
+    OUTPUT: 0x01,
+    ANALOG: 0x02,
+    PWM: 0x03,
+    SERVO: 0x04,
+    SHIFT: 0x05,
+    I2C: 0x06,
+    ONEWIRE: 0x07,
+    STEPPER: 0x08,
+    SERIAL: 0x0A,
+    PULLUP: 0x0B,
+    IGNORE: 0x7F,
+    PING_READ: 0x75,
+    UNKOWN: 0x10,
+  };
+
+  this.I2C_MODES = {
+    WRITE: 0,
+    READ: 1,
+    CONTINUOUS_READ: 2,
+    STOP_READING: 3,
+  };
+
+  this.STEPPER = {
+    TYPE: {
+      DRIVER: 1,
+      TWO_WIRE: 2,
+      FOUR_WIRE: 4,
+    },
+    RUNSTATE: {
+      STOP: 0,
+      ACCEL: 1,
+      DECEL: 2,
+      RUN: 3,
+    },
+    DIRECTION: {
+      CCW: 0,
+      CW: 1,
+    },
+  };
+
+  this.SERIAL_MODES = {
+    CONTINUOUS_READ: 0x00,
+    STOP_READING: 0x01,
+  };
+
+  // ids for hardware and software serial ports on the board
+  this.SERIAL_PORT_IDs = {
+    HW_SERIAL0: 0x00,
+    HW_SERIAL1: 0x01,
+    HW_SERIAL2: 0x02,
+    HW_SERIAL3: 0x03,
+    SW_SERIAL0: 0x08,
+    SW_SERIAL1: 0x09,
+    SW_SERIAL2: 0x10,
+    SW_SERIAL3: 0x11,
+
+    // Default can be used by depender libraries to key on a
+    // single property name when negotiating ports.
+    //
+    // Firmata elects SW_SERIAL0: 0x08 as its DEFAULT
+    DEFAULT: 0x08,
+  };
+
+  // map to the pin resolution value in the capability query response
+  this.SERIAL_PIN_TYPES = {
+    RES_RX0: 0x00,
+    RES_TX0: 0x01,
+    RES_RX1: 0x02,
+    RES_TX1: 0x03,
+    RES_RX2: 0x04,
+    RES_TX2: 0x05,
+    RES_RX3: 0x06,
+    RES_TX3: 0x07,
+  };
+
+  this.RESOLUTION = {
+    ADC: null,
+    DAC: null,
+    PWM: null,
+  };
+
+  this.HIGH = 1;
+  this.LOW = 0;
+  this.pins = [];
+  this.ports = Array(16).fill(0);
+  this.analogPins = [];
+  this.version = {};
+  this.firmware = {};
+  this.currentBuffer = [];
+  this.versionReceived = false;
+  this.name = "Firmata";
+  this.settings = settings;
+  this.pending = 0;
+
+  if (typeof port === "object") {
+    this.transport = port;
+  } else {
+    this.transport = new com.SerialPort(port, settings.serialport);
+  }
+
+  // For backward compat
+  this.sp = this.transport;
+
+  this.transport.on("close", function() {
+    this.emit("close");
+  }.bind(this));
+
+  this.transport.on("disconnect", function() {
+    this.emit("disconnect");
+  }.bind(this));
+
+  this.transport.on("open", function() {
+    this.emit("open");
+    // Legacy
+    this.emit("connect");
+  }.bind(this));
+
+  this.transport.on("error", function(error) {
+    if (!this.isReady &amp;&amp; typeof callback === "function") {
+      callback(error);
+    } else {
+      this.emit("error", error);
+    }
+  }.bind(this));
+
+  this.transport.on("data", function(data) {
+    var byte, currByte, response, first, last, handler;
+
+    for (var i = 0; i &lt; data.length; i++) {
+      byte = data[i];
+      // we dont want to push 0 as the first byte on our buffer
+      if (this.currentBuffer.length === 0 &amp;&amp; byte === 0) {
+        continue;
+      } else {
+        this.currentBuffer.push(byte);
+
+        first = this.currentBuffer[0];
+        last = this.currentBuffer[this.currentBuffer.length - 1];
+
+        // [START_SYSEX, ... END_SYSEX]
+        if (first === START_SYSEX &amp;&amp; last === END_SYSEX) {
+
+          handler = SYSEX_RESPONSE[this.currentBuffer[1]];
+
+          // Ensure a valid SYSEX_RESPONSE handler exists
+          // Only process these AFTER the REPORT_VERSION
+          // message has been received and processed.
+          if (handler &amp;&amp; this.versionReceived) {
+            handler(this);
+          }
+
+          // It is possible for the board to have
+          // existing activity from a previous run
+          // that will leave any of the following
+          // active:
+          //
+          //    - ANALOG_MESSAGE ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var firmata = require('./lib/firmata.js'),
+    repl = require('repl');
+console.log('Enter USB Port and press enter:');
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+process.stdin.once('data', function(chunk) {
+    var port = chunk.replace('\n', '');
+    var board = new firmata.<span class="apidocCodeKeywordSpan">Board</span>(port, function() {
+        console.log('Successfully Connected to ' + port);
+        repl.start('firmata&gt;').context.board = board;
+    });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.decode" id="apidoc.element.firmata.Board.decode">
+        function <span class="apidocSignatureSpan">firmata.Board.</span>decode
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decode = function (data) {
+  var decoded = [];
+
+  if (data.length % 2 !== 0) {
+    throw new Error("Board.decode(data) called with odd number of data bytes");
+  }
+
+  while (data.length) {
+    var lsb = data.shift();
+    var msb = data.shift();
+    decoded.push(lsb | (msb &lt;&lt; 7));
+  }
+
+  return decoded;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Sysex
+
+- `board.sysexResponse(commandByte, handler)`
+
+Allow user code to handle arbitrary sysex responses. `commandByte` must be associated with some message that's expected from
+ the slave device. The `handler` is called with an array of _raw_ data from the slave. Data decoding must be done within the handler
+ itself.
+
+- Use `Board.<span class="apidocCodeKeywordSpan">decode</span>(data)` to extract useful values from the incoming response data.
+
+- `board.sysexCommand(message)`
+
+Allow user code to send arbitrary sysex messages. The `message` array is expected to be all necessary bytes between START_SYSEX
+and END_SYSEX (non-inclusive). It will be assumed that the data in the message array is already encoded as 2 7-bit bytes LSB first
+.
+
+- Use `Board.encode(data)` to encode data values into an array of 7 bit byte pairs.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.encode" id="apidoc.element.firmata.Board.encode">
+        function <span class="apidocSignatureSpan">firmata.Board.</span>encode
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">encode = function (data) {
+  var encoded = [];
+  var length = data.length;
+
+  for (var i = 0; i &lt; length; i++) {
+    encoded.push(
+      data[i] &amp; 0x7F,
+      (data[i] &gt;&gt; 7) &amp; 0x7F
+    );
+  }
+
+  return encoded;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+- Use `Board.decode(data)` to extract useful values from the incoming response data.
+
+- `board.sysexCommand(message)`
+
+Allow user code to send arbitrary sysex messages. The `message` array is expected to be all necessary bytes between START_SYSEX
+and END_SYSEX (non-inclusive). It will be assumed that the data in the message array is already encoded as 2 7-bit bytes LSB first
+.
+
+- Use `Board.<span class="apidocCodeKeywordSpan">encode</span>(data)` to encode data values into an array of 7 bit byte pairs.
+
+
+### Encode/Decode
+
+- `Board.encode(data)`
+
+Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.isAcceptablePort" id="apidoc.element.firmata.Board.isAcceptablePort">
+        function <span class="apidocSignatureSpan">firmata.Board.</span>isAcceptablePort
+        <span class="apidocSignatureSpan">(port)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isAcceptablePort = function (port) {
+  var rport = /usb|acm|^com/i;
+
+  if (rport.test(port.comName)) {
+    return true;
+  }
+
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.requestPort" id="apidoc.element.firmata.Board.requestPort">
+        function <span class="apidocSignatureSpan">firmata.Board.</span>requestPort
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requestPort = function (callback) {
+  com.list(function(error, ports) {
+    var port = ports.find(function(port) {
+      if (Board.isAcceptablePort(port)) {
+        return port;
+      }
+    });
+
+    if (port) {
+      callback(null, port);
+    } else {
+      callback(new Error("No Acceptable Port Found"), null);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata.Board.prototype" id="apidoc.module.firmata.Board.prototype">module firmata.Board.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype._sendOneWireRequest" id="apidoc.element.firmata.Board.prototype._sendOneWireRequest">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>_sendOneWireRequest
+        <span class="apidocSignatureSpan">(pin, subcommand, device, numBytesToRead, correlationId, delay, dataToWrite, event, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_sendOneWireRequest = function (pin, subcommand, device, numBytesToRead, correlationId, delay, dataToWrite, event, callback) {
+  var bytes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  if (device || numBytesToRead || correlationId || delay || dataToWrite) {
+    subcommand = subcommand | ONEWIRE_WITHDATA_REQUEST_BITS;
+  }
+
+  if (device) {
+    bytes.splice.apply(bytes, [0, 8].concat(device));
+  }
+
+  if (numBytesToRead) {
+    bytes[8] = numBytesToRead &amp; 0xFF;
+    bytes[9] = (numBytesToRead &gt;&gt; 8) &amp; 0xFF;
+  }
+
+  if (correlationId) {
+    bytes[10] = correlationId &amp; 0xFF;
+    bytes[11] = (correlationId &gt;&gt; 8) &amp; 0xFF;
+  }
+
+  if (delay) {
+    bytes[12] = delay &amp; 0xFF;
+    bytes[13] = (delay &gt;&gt; 8) &amp; 0xFF;
+    bytes[14] = (delay &gt;&gt; 16) &amp; 0xFF;
+    bytes[15] = (delay &gt;&gt; 24) &amp; 0xFF;
+  }
+
+  if (dataToWrite) {
+    dataToWrite.forEach(function(byte) {
+      bytes.push(byte);
+    });
+  }
+
+  var output = [START_SYSEX, ONEWIRE_DATA, subcommand, pin];
+  output = output.concat(Encoder7Bit.to7BitArray(bytes));
+  output.push(END_SYSEX);
+
+  writeToTransport(this, output);
+
+  if (event &amp;&amp; callback) {
+    this.once(event, callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype._sendOneWireSearch" id="apidoc.element.firmata.Board.prototype._sendOneWireSearch">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>_sendOneWireSearch
+        <span class="apidocSignatureSpan">(type, event, pin, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_sendOneWireSearch = function (type, event, pin, callback) {
+  writeToTransport(this, [START_SYSEX, ONEWIRE_DATA, type, pin, END_SYSEX]);
+
+  var searchTimeout = setTimeout(function() {
+<span class="apidocCodeCommentSpan">    /* istanbul ignore next */
+</span>    callback(new Error("1-Wire device search timeout - are you running ConfigurableFirmata?"));
+  }, 5000);
+  this.once(event, function(devices) {
+    clearTimeout(searchTimeout);
+    callback(null, devices);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.analogRead" id="apidoc.element.firmata.Board.prototype.analogRead">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>analogRead
+        <span class="apidocSignatureSpan">(pin, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">analogRead = function (pin, callback) {
+  this.reportAnalogPin(pin, 1);
+  this.addListener("analog-read-" + pin, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `analogRead(pin,callback)`
+
+Register to get the analog value (0 - 1023) of the pin. The value is reported via the callback at the current sampling interval.
+The sampling interval is 19 milliseconds by default so the analog value is reported every 19 ms unless the sampling interval is
+changed. See documentation for `board.setSamplingInterval` below. To get the locally stored value at any other time you can use `
+board.pins[board.analogPins[analogPinNumber]].value`, but the value will only be as fresh as the most recent report via the sampling
+ interval.
+
+Example:
+
+```js
+board.<span class="apidocCodeKeywordSpan">analogRead</span>(0, function(value) {
+  console.log("The value of pin A0 is " + value + " as reported at the sampling interval");
+});
+```
+
+To stop reporting analog values for a pin, call `board.reportAnalogPin(analogPinNumber, 0)`. To restart, call `analogRead(pin,callback
+)` or use `board.reportAnalogPin(analogPinNumber, 1)` if you don't want to call analogRead again.
+
+*Note if you are familiar with the use of analogRead when writing an Arduino sketch, the firmata.js implementation of analogRead
+ is very different in that it's reporting-based rather than immediately returning a value as in an Arduino sketch.*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.analogWrite" id="apidoc.element.firmata.Board.prototype.analogWrite">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>analogWrite
+        <span class="apidocSignatureSpan">(pin, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">analogWrite = function (pin, value) {
+  var data = [];
+
+  this.pins[pin].value = value;
+
+  if (pin &gt; 15) {
+    data[0] = START_SYSEX;
+    data[1] = EXTENDED_ANALOG;
+    data[2] = pin;
+    data[3] = value &amp; 0x7F;
+    data[4] = (value &gt;&gt; 7) &amp; 0x7F;
+
+    if (value &gt; 0x00004000) {
+      data[data.length] = (value &gt;&gt; 14) &amp; 0x7F;
+    }
+
+    if (value &gt; 0x00200000) {
+      data[data.length] = (value &gt;&gt; 21) &amp; 0x7F;
+    }
+
+    if (value &gt; 0x10000000) {
+      data[data.length] = (value &gt;&gt; 28) &amp; 0x7F;
+    }
+
+    data[data.length] = END_SYSEX;
+  } else {
+    data.push(ANALOG_MESSAGE | pin, value &amp; 0x7F, (value &gt;&gt; 7) &amp; 0x7F);
+  }
+
+  writeToTransport(this, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.digitalRead" id="apidoc.element.firmata.Board.prototype.digitalRead">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>digitalRead
+        <span class="apidocSignatureSpan">(pin, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">digitalRead = function (pin, callback) {
+  this.reportDigitalPin(pin, 1);
+  this.addListener("digital-read-" + pin, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `digitalRead(pin,callback)`
+
+Register to get the digital value (board.HIGH or board.LOW). The value is reported via the callback whenever it changes. To get
+the locally stored value at any other time you can use `board.pins[pinNumber].value`.
+
+Example:
+
+```js
+board.<span class="apidocCodeKeywordSpan">digitalRead</span>(2, function(value) {
+  console.log("The value of digital pin 2 changed to: " + value);
+});
+```
+
+To stop reporting digital values for a pin, call `board.reportDigitalPin(digitalPinNumber, 0)`. To restart, call `digitalRead(pin
+,callback)` or use `board.reportDigitalPin(digitalPinNumber, 1)` if you don't want to call digitalRead again.
+
+*Note if you are familiar with the use of digitalRead when writing an Arduino sketch, the firmata.js implementation of digitalRead
+ is very different in that it's reporting-based rather than immediately returning a value as in an Arduino sketch.*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.digitalWrite" id="apidoc.element.firmata.Board.prototype.digitalWrite">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>digitalWrite
+        <span class="apidocSignatureSpan">(pin, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">digitalWrite = function (pin, value) {
+  var port = pin &gt;&gt; 3;
+  var bit = 1 &lt;&lt; (pin &amp; 0x07);
+
+  this.pins[pin].value = value;
+
+  if (value) {
+    this.ports[port] |= bit;
+  } else {
+    this.ports[port] &amp;= ~bit;
+  }
+
+  writeToTransport(this, [
+    DIGITAL_MESSAGE | port,
+    this.ports[port] &amp; 0x7F,
+    (this.ports[port] &gt;&gt; 7) &amp; 0x7F
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.getSamplingInterval" id="apidoc.element.firmata.Board.prototype.getSamplingInterval">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>getSamplingInterval
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSamplingInterval = function () {
+  return this.settings.samplingInterval;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.i2cConfig" id="apidoc.element.firmata.Board.prototype.i2cConfig">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cConfig
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">i2cConfig = function (options) {
+  var settings = i2cActive.get(this);
+  var delay;
+
+  if (!settings) {
+    settings = {
+<span class="apidocCodeCommentSpan">      /*
+        Keys will be I2C peripheral addresses
+       */
+</span>    };
+    i2cActive.set(this, settings);
+  }
+
+  if (typeof options === "number") {
+    delay = options;
+  } else {
+    if (typeof options === "object" &amp;&amp; options !== null) {
+      delay = Number(options.delay);
+
+      // When an address was explicitly specified, there may also be
+      // peripheral specific instructions in the config.
+      if (typeof options.address !== "undefined") {
+        if (!settings[options.address]) {
+          settings[options.address] = {
+            stopTX: true,
+          };
+        }
+      }
+
+      // When settings have been explicitly provided, just bulk assign
+      // them to the existing settings, even if that's empty. This
+      // allows for reconfiguration as needed.
+      if (typeof options.settings !== "undefined") {
+        Object.assign(settings[options.address], options.settings);
+        /*
+          - stopTX: true | false
+              Set `stopTX` to `false` if this peripheral
+              expects Wire to keep the transmission connection alive between
+              setting a register and requesting bytes.
+
+              Defaults to `true`.
+         */
+      }
+    }
+  }
+
+  settings.delay = delay = delay || 0;
+
+  i2cRequest(this, [
+    START_SYSEX,
+    I2C_CONFIG,
+    delay &amp; 0xFF, (delay &gt;&gt; 8) &amp; 0xFF,
+    END_SYSEX,
+  ]);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.i2cRead" id="apidoc.element.firmata.Board.prototype.i2cRead">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cRead
+        <span class="apidocSignatureSpan">(address, register, bytesToRead, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">i2cRead = function (address, register, bytesToRead, callback) {
+
+  if (arguments.length === 3 &amp;&amp;
+      typeof register === "number" &amp;&amp;
+      typeof bytesToRead === "function") {
+    callback = bytesToRead;
+    bytesToRead = register;
+    register = null;
+  }
+
+  var event = "I2C-reply-" + address + "-";
+  var data = [
+    START_SYSEX,
+    I2C_REQUEST,
+    address,
+    this.I2C_MODES.CONTINUOUS_READ &lt;&lt; 3,
+  ];
+
+  if (register !== null) {
+    data.push(
+      register &amp; 0x7F, (register &gt;&gt; 7) &amp; 0x7F
+    );
+  } else {
+    register = 0;
+  }
+
+  event += register;
+
+  data.push(
+    bytesToRead &amp; 0x7F, (bytesToRead &gt;&gt; 7) &amp; 0x7F,
+    END_SYSEX
+  );
+
+  this.on(event, callback);
+
+  i2cRequest(this, data);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.i2cReadOnce" id="apidoc.element.firmata.Board.prototype.i2cReadOnce">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cReadOnce
+        <span class="apidocSignatureSpan">(address, register, bytesToRead, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">i2cReadOnce = function (address, register, bytesToRead, callback) {
+
+  if (arguments.length === 3 &amp;&amp;
+      typeof register === "number" &amp;&amp;
+      typeof bytesToRead === "function") {
+    callback = bytesToRead;
+    bytesToRead = register;
+    register = null;
+  }
+
+  var event = "I2C-reply-" + address + "-";
+  var data = [
+    START_SYSEX,
+    I2C_REQUEST,
+    address,
+    this.I2C_MODES.READ &lt;&lt; 3,
+  ];
+
+  if (register !== null) {
+    data.push(
+      register &amp; 0x7F, (register &gt;&gt; 7) &amp; 0x7F
+    );
+  } else {
+    register = 0;
+  }
+
+  event += register;
+
+  data.push(
+    bytesToRead &amp; 0x7F, (bytesToRead &gt;&gt; 7) &amp; 0x7F,
+    END_SYSEX
+  );
+
+  this.once(event, callback);
+
+  i2cRequest(this, data);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.i2cStop" id="apidoc.element.firmata.Board.prototype.i2cStop">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cStop
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">i2cStop = function (options) {
+  // There may be more values in the future
+  // var options = {};
+
+  // null or undefined? Do nothing.
+  if (options == null) {
+    return;
+  }
+
+  if (typeof options === "number") {
+    options = {
+      address: options
+    };
+  }
+
+  writeToTransport(this, [
+    START_SYSEX,
+    I2C_REQUEST,
+    options.address,
+    this.I2C_MODES.STOP_READING &lt;&lt; 3,
+    END_SYSEX,
+  ]);
+
+  Object.keys(this._events).forEach(function(event) {
+    if (event.startsWith("I2C-reply-" + options.address)) {
+      this.removeAllListeners(event);
+    }
+  }, this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.i2cWrite" id="apidoc.element.firmata.Board.prototype.i2cWrite">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cWrite
+        <span class="apidocSignatureSpan">(address, registerOrData, inBytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">i2cWrite = function (address, registerOrData, inBytes) {
+<span class="apidocCodeCommentSpan">  /**
+   * registerOrData:
+   * [... arbitrary bytes]
+   *
+   * or
+   *
+   * registerOrData, inBytes:
+   * command [, ...]
+   *
+   */
+</span>  var bytes;
+  var data = [
+    START_SYSEX,
+    I2C_REQUEST,
+    address,
+    this.I2C_MODES.WRITE &lt;&lt; 3
+  ];
+
+  // If i2cWrite was used for an i2cWriteReg call...
+  if (arguments.length === 3 &amp;&amp;
+      !Array.isArray(registerOrData) &amp;&amp;
+      !Array.isArray(inBytes)) {
+
+    return this.i2cWriteReg(address, registerOrData, inBytes);
+  }
+
+  // Fix arguments if called with Firmata.js API
+  if (arguments.length === 2) {
+    if (Array.isArray(registerOrData)) {
+      inBytes = registerOrData.slice();
+      registerOrData = inBytes.shift();
+    } else {
+      inBytes = [];
+    }
+  }
+
+  bytes = new Buffer([registerOrData].concat(inBytes));
+
+  for (var i = 0, length = bytes.length; i &lt; length; i++) {
+    data.push(
+      bytes[i] &amp; 0x7F, (bytes[i] &gt;&gt; 7) &amp; 0x7F
+    );
+  }
+
+  data.push(END_SYSEX);
+
+  i2cRequest(this, data);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.i2cWriteReg" id="apidoc.element.firmata.Board.prototype.i2cWriteReg">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>i2cWriteReg
+        <span class="apidocSignatureSpan">(address, register, byte)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">i2cWriteReg = function (address, register, byte) {
+  i2cRequest(this, [
+    START_SYSEX,
+    I2C_REQUEST,
+    address,
+    this.I2C_MODES.WRITE &lt;&lt; 3,
+    // register
+    register &amp; 0x7F, (register &gt;&gt; 7) &amp; 0x7F,
+    // byte
+    byte &amp; 0x7F, (byte &gt;&gt; 7) &amp; 0x7F,
+    END_SYSEX,
+  ]);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.pinMode" id="apidoc.element.firmata.Board.prototype.pinMode">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>pinMode
+        <span class="apidocSignatureSpan">(pin, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pinMode = function (pin, mode) {
+  this.pins[pin].mode = mode;
+  writeToTransport(this, [PIN_MODE, pin, mode]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.pingRead" id="apidoc.element.firmata.Board.prototype.pingRead">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>pingRead
+        <span class="apidocSignatureSpan">(opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pingRead = function (opts, callback) {
+
+  if (this.pins[opts.pin].supportedModes.indexOf(PING_READ) === -1) {
+    throw new Error("Please upload PingFirmata to the board");
+  }
+
+  var pin = opts.pin;
+  var value = opts.value;
+  var pulseOut = opts.pulseOut || 0;
+  var timeout = opts.timeout || 1000000;
+  var pulseOutArray = [
+    (pulseOut &gt;&gt; 24) &amp; 0xFF,
+    (pulseOut &gt;&gt; 16) &amp; 0xFF,
+    (pulseOut &gt;&gt; 8) &amp; 0XFF,
+    (pulseOut &amp; 0xFF),
+  ];
+  var timeoutArray = [
+    (timeout &gt;&gt; 24) &amp; 0xFF,
+    (timeout &gt;&gt; 16) &amp; 0xFF,
+    (timeout &gt;&gt; 8) &amp; 0XFF,
+    (timeout &amp; 0xFF),
+  ];
+
+  writeToTransport(this, [
+    START_SYSEX,
+    PING_READ,
+    pin,
+    value,
+    pulseOutArray[0] &amp; 0x7F, (pulseOutArray[0] &gt;&gt; 7) &amp; 0x7F,
+    pulseOutArray[1] &amp; 0x7F, (pulseOutArray[1] &gt;&gt; 7) &amp; 0x7F,
+    pulseOutArray[2] &amp; 0x7F, (pulseOutArray[2] &gt;&gt; 7) &amp; 0x7F,
+    pulseOutArray[3] &amp; 0x7F, (pulseOutArray[3] &gt;&gt; 7) &amp; 0x7F,
+    timeoutArray[0] &amp; 0x7F, (timeoutArray[0] &gt;&gt; 7) &amp; 0x7F,
+    timeoutArray[1] &amp; 0x7F, (timeoutArray[1] &gt;&gt; 7) &amp; 0x7F,
+    timeoutArray[2] &amp; 0x7F, (timeoutArray[2] &gt;&gt; 7) &amp; 0x7F,
+    timeoutArray[3] &amp; 0x7F, (timeoutArray[3] &gt;&gt; 7) &amp; 0x7F,
+    END_SYSEX,
+  ]);
+
+  this.once("ping-read-" + pin, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.pwmWrite" id="apidoc.element.firmata.Board.prototype.pwmWrite">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>pwmWrite
+        <span class="apidocSignatureSpan">(pin, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pwmWrite = function (pin, value) {
+  var data = [];
+
+  this.pins[pin].value = value;
+
+  if (pin &gt; 15) {
+    data[0] = START_SYSEX;
+    data[1] = EXTENDED_ANALOG;
+    data[2] = pin;
+    data[3] = value &amp; 0x7F;
+    data[4] = (value &gt;&gt; 7) &amp; 0x7F;
+
+    if (value &gt; 0x00004000) {
+      data[data.length] = (value &gt;&gt; 14) &amp; 0x7F;
+    }
+
+    if (value &gt; 0x00200000) {
+      data[data.length] = (value &gt;&gt; 21) &amp; 0x7F;
+    }
+
+    if (value &gt; 0x10000000) {
+      data[data.length] = (value &gt;&gt; 28) &amp; 0x7F;
+    }
+
+    data[data.length] = END_SYSEX;
+  } else {
+    data.push(ANALOG_MESSAGE | pin, value &amp; 0x7F, (value &gt;&gt; 7) &amp; 0x7F);
+  }
+
+  writeToTransport(this, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.queryAnalogMapping" id="apidoc.element.firmata.Board.prototype.queryAnalogMapping">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryAnalogMapping
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queryAnalogMapping = function (callback) {
+  this.once("analog-mapping-query", callback);
+  writeToTransport(this, [START_SYSEX, ANALOG_MAPPING_QUERY, END_SYSEX]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.queryCapabilities" id="apidoc.element.firmata.Board.prototype.queryCapabilities">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryCapabilities
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queryCapabilities = function (callback) {
+  this.once("capability-query", callback);
+  writeToTransport(this, [START_SYSEX, CAPABILITY_QUERY, END_SYSEX]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.queryFirmware" id="apidoc.element.firmata.Board.prototype.queryFirmware">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryFirmware
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queryFirmware = function (callback) {
+  this.once("queryfirmware", callback);
+  writeToTransport(this, [START_SYSEX, QUERY_FIRMWARE, END_SYSEX]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.queryPinState" id="apidoc.element.firmata.Board.prototype.queryPinState">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>queryPinState
+        <span class="apidocSignatureSpan">(pin, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queryPinState = function (pin, callback) {
+  this.once("pin-state-" + pin, callback);
+  writeToTransport(this, [START_SYSEX, PIN_STATE_QUERY, pin, END_SYSEX]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.reportAnalogPin" id="apidoc.element.firmata.Board.prototype.reportAnalogPin">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reportAnalogPin
+        <span class="apidocSignatureSpan">(pin, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportAnalogPin = function (pin, value) {
+<span class="apidocCodeCommentSpan">  /* istanbul ignore else */
+</span>  if (value === 0 || value === 1) {
+    this.pins[this.analogPins[pin]].report = value;
+    writeToTransport(this, [REPORT_ANALOG | pin, value]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+board.analogRead(0, function(value) {
+  console.log("The value of pin A0 is " + value + " as reported at the sampling interval");
+});
+```
+
+To stop reporting analog values for a pin, call `board.<span class="apidocCodeKeywordSpan">reportAnalogPin</span>(analogPinNumber
+, 0)`. To restart, call `analogRead(pin,callback)` or use `board.reportAnalogPin(analogPinNumber, 1)` if you don't want to
+call analogRead again.
+
+*Note if you are familiar with the use of analogRead when writing an Arduino sketch, the firmata.js implementation of analogRead
+ is very different in that it's reporting-based rather than immediately returning a value as in an Arduino sketch.*
+
+- `setSamplingInterval(interval)`
+
+Set the sampling interval in milliseconds. Default is 19 ms. Minimum is 10 ms, max is 65535 ms. The sampling interval controls how
+ often analog values are reported when using `board.analogRead` and how often i2c device values are reported when using `board.i2cRead
+`. The same sampling interval is used for both analog and i2c value reporting.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.reportDigitalPin" id="apidoc.element.firmata.Board.prototype.reportDigitalPin">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reportDigitalPin
+        <span class="apidocSignatureSpan">(pin, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportDigitalPin = function (pin, value) {
+  var port = pin &gt;&gt; 3;
+<span class="apidocCodeCommentSpan">  /* istanbul ignore else */
+</span>  if (value === 0 || value === 1) {
+    this.pins[pin].report = value;
+    writeToTransport(this, [REPORT_DIGITAL | port, value]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+board.digitalRead(2, function(value) {
+  console.log("The value of digital pin 2 changed to: " + value);
+});
+```
+
+To stop reporting digital values for a pin, call `board.<span class="apidocCodeKeywordSpan">reportDigitalPin</span>(digitalPinNumber
+, 0)`. To restart, call `digitalRead(pin,callback)` or use `board.reportDigitalPin(digitalPinNumber, 1)` if you don't want
+to call digitalRead again.
+
+*Note if you are familiar with the use of digitalRead when writing an Arduino sketch, the firmata.js implementation of digitalRead
+ is very different in that it's reporting-based rather than immediately returning a value as in an Arduino sketch.*
+
+- `analogWrite(pin,value)`
+
+Write an output to an analog pin (PWM). pin is the number of the pin and the value is between 0 and 255.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.reportVersion" id="apidoc.element.firmata.Board.prototype.reportVersion">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reportVersion
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportVersion = function (callback) {
+  this.once("reportversion", callback);
+  writeToTransport(this, [REPORT_VERSION]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.reset" id="apidoc.element.firmata.Board.prototype.reset">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+  writeToTransport(this, [SYSTEM_RESET]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendI2CConfig" id="apidoc.element.firmata.Board.prototype.sendI2CConfig">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendI2CConfig
+        <span class="apidocSignatureSpan">(delay)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendI2CConfig = function (delay) {
+  return this.i2cConfig(delay);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendI2CReadRequest" id="apidoc.element.firmata.Board.prototype.sendI2CReadRequest">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendI2CReadRequest
+        <span class="apidocSignatureSpan">(address, numBytes, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendI2CReadRequest = function (address, numBytes, callback) {
+  i2cRequest(this, [
+    START_SYSEX,
+    I2C_REQUEST,
+    address,
+    this.I2C_MODES.READ &lt;&lt; 3,
+    numBytes &amp; 0x7F, (numBytes &gt;&gt; 7) &amp; 0x7F,
+    END_SYSEX,
+  ]);
+  this.once("I2C-reply-" + address + "-0" , callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendI2CWriteRequest" id="apidoc.element.firmata.Board.prototype.sendI2CWriteRequest">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendI2CWriteRequest
+        <span class="apidocSignatureSpan">(slaveAddress, bytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendI2CWriteRequest = function (slaveAddress, bytes) {
+  var data = [];
+<span class="apidocCodeCommentSpan">  /* istanbul ignore next */
+</span>  bytes = bytes || [];
+
+  data.push(
+    START_SYSEX,
+    I2C_REQUEST,
+    slaveAddress,
+    this.I2C_MODES.WRITE &lt;&lt; 3
+  );
+
+  for (var i = 0, length = bytes.length; i &lt; length; i++) {
+    data.push(
+      bytes[i] &amp; 0x7F, (bytes[i] &gt;&gt; 7) &amp; 0x7F
+    );
+  }
+
+  data.push(END_SYSEX);
+
+  i2cRequest(this, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireAlarmsSearch" id="apidoc.element.firmata.Board.prototype.sendOneWireAlarmsSearch">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireAlarmsSearch
+        <span class="apidocSignatureSpan">(pin, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireAlarmsSearch = function (pin, callback) {
+  this._sendOneWireSearch(ONEWIRE_SEARCH_ALARMS_REQUEST, "1-wire-search-alarms-reply-" + pin, pin, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireConfig" id="apidoc.element.firmata.Board.prototype.sendOneWireConfig">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireConfig
+        <span class="apidocSignatureSpan">(pin, enableParasiticPower)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireConfig = function (pin, enableParasiticPower) {
+  writeToTransport(this, [
+    START_SYSEX,
+    ONEWIRE_DATA,
+    ONEWIRE_CONFIG_REQUEST,
+    pin,
+    enableParasiticPower ? 0x01 : 0x00,
+    END_SYSEX
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireDelay" id="apidoc.element.firmata.Board.prototype.sendOneWireDelay">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireDelay
+        <span class="apidocSignatureSpan">(pin, delay)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireDelay = function (pin, delay) {
+  this._sendOneWireRequest(pin, ONEWIRE_DELAY_REQUEST_BIT, null, null, null, delay);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireRead" id="apidoc.element.firmata.Board.prototype.sendOneWireRead">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireRead
+        <span class="apidocSignatureSpan">(pin, device, numBytesToRead, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireRead = function (pin, device, numBytesToRead, callback) {
+  var correlationId = Math.floor(Math.random() * 255);
+<span class="apidocCodeCommentSpan">  /* istanbul ignore next */
+</span>  var readTimeout = setTimeout(function() {
+    /* istanbul ignore next */
+    callback(new Error("1-Wire device read timeout - are you running ConfigurableFirmata?"));
+  }, 5000);
+  this._sendOneWireRequest(pin, ONEWIRE_READ_REQUEST_BIT, device, numBytesToRead, correlationId, null, null, "1-wire-read-reply-" +
+correlationId, function(data) {
+    clearTimeout(readTimeout);
+    callback(null, data);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireReset" id="apidoc.element.firmata.Board.prototype.sendOneWireReset">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireReset
+        <span class="apidocSignatureSpan">(pin)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireReset = function (pin) {
+  this._sendOneWireRequest(pin, ONEWIRE_RESET_REQUEST_BIT);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireSearch" id="apidoc.element.firmata.Board.prototype.sendOneWireSearch">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireSearch
+        <span class="apidocSignatureSpan">(pin, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireSearch = function (pin, callback) {
+  this._sendOneWireSearch(ONEWIRE_SEARCH_REQUEST, "1-wire-search-reply-" + pin, pin, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireWrite" id="apidoc.element.firmata.Board.prototype.sendOneWireWrite">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireWrite
+        <span class="apidocSignatureSpan">(pin, device, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireWrite = function (pin, device, data) {
+  this._sendOneWireRequest(pin, ONEWIRE_WRITE_REQUEST_BIT, device, null, null, null, Array.isArray(data) ? data : [data]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendOneWireWriteAndRead" id="apidoc.element.firmata.Board.prototype.sendOneWireWriteAndRead">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendOneWireWriteAndRead
+        <span class="apidocSignatureSpan">(pin, device, data, numBytesToRead, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendOneWireWriteAndRead = function (pin, device, data, numBytesToRead, callback) {
+  var correlationId = Math.floor(Math.random() * 255);
+<span class="apidocCodeCommentSpan">  /* istanbul ignore next */
+</span>  var readTimeout = setTimeout(function() {
+    /* istanbul ignore next */
+    callback(new Error("1-Wire device read timeout - are you running ConfigurableFirmata?"));
+  }, 5000);
+  this._sendOneWireRequest(pin, ONEWIRE_WRITE_REQUEST_BIT | ONEWIRE_READ_REQUEST_BIT, device, numBytesToRead, correlationId, null
+, Array.isArray(data) ? data : [data], "1-wire-read-reply-" + correlationId, function(data) {
+    clearTimeout(readTimeout);
+
+    callback(null, data);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sendString" id="apidoc.element.firmata.Board.prototype.sendString">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sendString
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendString = function (string) {
+  var bytes = new Buffer(string + "\0", "utf8");
+  var data = [];
+  data.push(START_SYSEX);
+  data.push(STRING_DATA);
+  for (var i = 0, length = bytes.length; i &lt; length; i++) {
+    data.push(bytes[i] &amp; 0x7F);
+    data.push((bytes[i] &gt;&gt; 7) &amp; 0x7F);
+  }
+  data.push(END_SYSEX);
+
+  writeToTransport(this, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.serialClose" id="apidoc.element.firmata.Board.prototype.serialClose">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialClose
+        <span class="apidocSignatureSpan">(portId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialClose = function (portId) {
+  writeToTransport(this, [
+    START_SYSEX,
+    SERIAL_MESSAGE,
+    SERIAL_CLOSE | portId,
+    END_SYSEX,
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+&gt; `maxBytesToRead` specifies the maximum number of bytes to read per iteration. If there are less bytes in the buffer, the
+lesser number of bytes will be returned. A value of 0 indicates that all available bytes in the buffer should be read.
+
+- `board.serialStop(portId)`
+
+Stop continuous reading of the specified serial port. This does not close the port, it stops reading it but keeps the port open.
+
+- `board.<span class="apidocCodeKeywordSpan">serialClose</span>(portId)`
+
+Close the specified serial port.
+
+- `board.serialFlush(portId)`
+
+Flush the specified serial port. For hardware serial, this waits for the transmission of outgoing serial data to complete. For software
+ serial, this removes any buffered incoming serial data.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.serialConfig" id="apidoc.element.firmata.Board.prototype.serialConfig">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialConfig
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialConfig = function (options) {
+
+  var portId;
+  var baud;
+  var rxPin;
+  var txPin;
+
+<span class="apidocCodeCommentSpan">  /* istanbul ignore else */
+</span>  if (typeof options === "object" &amp;&amp; options !== null) {
+    portId = options.portId;
+    baud = options.baud;
+    rxPin = options.rxPin;
+    txPin = options.txPin;
+  }
+
+  /* istanbul ignore else */
+  if (typeof portId === "undefined") {
+    throw new Error("portId must be specified, see SERIAL_PORT_IDs for options.");
+  }
+
+  baud = baud || 57600;
+
+  var data = [
+    START_SYSEX,
+    SERIAL_MESSAGE,
+    SERIAL_CONFIG | portId,
+    baud &amp; 0x007F,
+    (baud &gt;&gt; 7) &amp; 0x007F,
+    (baud &gt;&gt; 14) &amp; 0x007F
+  ];
+  if (portId &gt; 7 &amp;&amp; typeof rxPin !== "undefined" &amp;&amp; typeof txPin !== "undefined") {
+    data.push(rxPin);
+    data.push(txPin);
+  } else if (portId &gt; 7) {
+    throw new Error("Both RX and TX pins must be defined when using Software Serial.");
+  }
+
+  data.push(END_SYSEX);
+  writeToTransport(this, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  SW_SERIAL0: 0x08,
+  SW_SERIAL1: 0x09,
+  SW_SERIAL2: 0x10,
+  SW_SERIAL3: 0x11,
+}
+```
+
+- `board.<span class="apidocCodeKeywordSpan">serialConfig</span>(options)`
+
+Configure a hardware or serial port -- required before using serial read/write functions
+
+```
+options = {
+  portId: board.SERIAL_PORT_IDs.HW_SERIAL1, // &lt;number&gt; The serial port to use (HW_SERIAL2, SW_SERIAL0, SW_SERIAL1...)
+  baud:   115200, // &lt;number&gt; (optional) The baud rate of the serial port; default is 57600
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.serialFlush" id="apidoc.element.firmata.Board.prototype.serialFlush">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialFlush
+        <span class="apidocSignatureSpan">(portId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialFlush = function (portId) {
+  writeToTransport(this, [
+    START_SYSEX,
+    SERIAL_MESSAGE,
+    SERIAL_FLUSH | portId,
+    END_SYSEX,
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Stop continuous reading of the specified serial port. This does not close the port, it stops reading it but keeps the port open.
+
+- `board.serialClose(portId)`
+
+Close the specified serial port.
+
+- `board.<span class="apidocCodeKeywordSpan">serialFlush</span>(portId)`
+
+Flush the specified serial port. For hardware serial, this waits for the transmission of outgoing serial data to complete. For software
+ serial, this removes any buffered incoming serial data.
+
+- `board.serialListen(portId)`
+
+**For SoftwareSerial only**. Only a single SoftwareSerial instance can read data at a time. Call this method to set this port to
+ be the reading port in the case there are multiple SoftwareSerial instances.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.serialListen" id="apidoc.element.firmata.Board.prototype.serialListen">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialListen
+        <span class="apidocSignatureSpan">(portId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialListen = function (portId) {
+  // listen only applies to software serial ports
+  if (portId &lt; 8) {
+    return;
+  }
+  writeToTransport(this, [
+    START_SYSEX,
+    SERIAL_MESSAGE,
+    SERIAL_LISTEN | portId,
+    END_SYSEX,
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  Close the specified serial port.
+
+- `board.serialFlush(portId)`
+
+  Flush the specified serial port. For hardware serial, this waits for the transmission of outgoing serial data to complete. For
+ software serial, this removes any buffered incoming serial data.
+
+- `board.<span class="apidocCodeKeywordSpan">serialListen</span>(portId)`
+
+  **For SoftwareSerial only**. Only a single SoftwareSerial instance can read data at a time. Call this method to set this port
+to be the reading port in the case there are multiple SoftwareSerial instances.
+
+
+### Sysex
+
+- `board.sysexResponse(commandByte, handler)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.serialRead" id="apidoc.element.firmata.Board.prototype.serialRead">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialRead
+        <span class="apidocSignatureSpan">(portId, maxBytesToRead, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialRead = function (portId, maxBytesToRead, callback) {
+  var data = [
+    START_SYSEX,
+    SERIAL_MESSAGE,
+    SERIAL_READ | portId,
+    this.SERIAL_MODES.CONTINUOUS_READ
+  ];
+
+  if (arguments.length === 2 &amp;&amp; typeof maxBytesToRead === "function") {
+    callback = maxBytesToRead;
+  } else {
+    data.push(maxBytesToRead &amp; 0x007F);
+    data.push((maxBytesToRead &gt;&gt; 7) &amp; 0x007F);
+  }
+
+  data.push(END_SYSEX);
+  writeToTransport(this, data);
+
+  this.on("serial-data-" + portId, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+- `board.serialWrite(portId, inBytes)`
+
+  Write an array of bytes to the specified serial port.
+
+
+- `board.<span class="apidocCodeKeywordSpan">serialRead</span>(portId, callback)`
+- `board.serialRead(portId, maxBytesToRead, callback)`
+
+  Start continuous reading of the specified serial port. The port is checked for data each iteration of the main Arduino loop.
+
+&gt; `maxBytesToRead` specifies the maximum number of bytes to read per iteration. If there are less bytes in the buffer, the
+lesser number of bytes will be returned. A value of 0 indicates that all available bytes in the buffer should be read.
+
+- `board.serialStop(portId)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.serialStop" id="apidoc.element.firmata.Board.prototype.serialStop">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialStop
+        <span class="apidocSignatureSpan">(portId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialStop = function (portId) {
+  writeToTransport(this, [
+    START_SYSEX,
+    SERIAL_MESSAGE,
+    SERIAL_READ | portId,
+    this.SERIAL_MODES.STOP_READING,
+    END_SYSEX,
+  ]);
+
+  this.removeAllListeners("serial-data-" + portId);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `board.serialRead(portId, callback)`
+- `board.serialRead(portId, maxBytesToRead, callback)`
+
+Start continuous reading of the specified serial port. The port is checked for data each iteration of the main Arduino loop.
+
+&gt; `maxBytesToRead` specifies the maximum number of bytes to read per iteration. If there are less bytes in the buffer, the
+lesser number of bytes will be returned. A value of 0 indicates that all available bytes in the buffer should be read.
+
+- `board.<span class="apidocCodeKeywordSpan">serialStop</span>(portId)`
+
+Stop continuous reading of the specified serial port. This does not close the port, it stops reading it but keeps the port open.
+
+- `board.serialClose(portId)`
+
+Close the specified serial port.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.serialWrite" id="apidoc.element.firmata.Board.prototype.serialWrite">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>serialWrite
+        <span class="apidocSignatureSpan">(portId, inBytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialWrite = function (portId, inBytes) {
+  var data = [
+    START_SYSEX,
+    SERIAL_MESSAGE,
+    SERIAL_WRITE | portId,
+  ];
+  for (var i = 0, len = inBytes.length; i &lt; len; i++) {
+    data.push(inBytes[i] &amp; 0x007F);
+    data.push((inBytes[i] &gt;&gt; 7) &amp; 0x007F);
+  }
+  data.push(END_SYSEX);
+<span class="apidocCodeCommentSpan">  /* istanbul ignore else */
+</span>  if (inBytes.length &gt; 0) {
+    writeToTransport(this, data);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    baud:   115200, // &lt;number&gt; (optional) The baud rate of the serial port; default is 57600
+    rxPin:  5,      // &lt;number&gt; (optional)[SW Serial only] The RX pin of the SoftwareSerial instance
+    txPin:  6       // &lt;number&gt; (optional)[SW Serial only] The TX pin of the SoftwareSerial instance
+  }
+  ```
+
+
+- `board.<span class="apidocCodeKeywordSpan">serialWrite</span>(portId, inBytes)`
+
+  Write an array of bytes to the specified serial port.
+
+
+- `board.serialRead(portId, callback)`
+- `board.serialRead(portId, maxBytesToRead, callback)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.servoConfig" id="apidoc.element.firmata.Board.prototype.servoConfig">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>servoConfig
+        <span class="apidocSignatureSpan">(pin, min, max)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">servoConfig = function (pin, min, max) {
+  var temp;
+
+  if (typeof pin === "object" &amp;&amp; pin !== null) {
+    temp = pin;
+    pin = temp.pin;
+    min = temp.min;
+    max = temp.max;
+  }
+
+  if (typeof pin === "undefined") {
+    throw new Error("servoConfig: pin must be specified");
+  }
+
+  if (typeof min === "undefined") {
+    throw new Error("servoConfig: min must be specified");
+  }
+
+  if (typeof max === "undefined") {
+    throw new Error("servoConfig: max must be specified");
+  }
+
+  // [0]  START_SYSEX  (0xF0)
+  // [1]  SERVO_CONFIG (0x70)
+  // [2]  pin number   (0-127)
+  // [3]  minPulse LSB (0-6)
+  // [4]  minPulse MSB (7-13)
+  // [5]  maxPulse LSB (0-6)
+  // [6]  maxPulse MSB (7-13)
+  // [7]  END_SYSEX    (0xF7)
+
+  this.pins[pin].mode = this.MODES.SERVO;
+
+  writeToTransport(this, [
+    START_SYSEX,
+    SERVO_CONFIG,
+    pin,
+    min &amp; 0x7F,
+    (min &gt;&gt; 7) &amp; 0x7F,
+    max &amp; 0x7F,
+    (max &gt;&gt; 7) &amp; 0x7F,
+    END_SYSEX,
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.servoWrite" id="apidoc.element.firmata.Board.prototype.servoWrite">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>servoWrite
+        <span class="apidocSignatureSpan">(pin, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">servoWrite = function (pin, value) {
+  // Values less than 544 will be treated as angles in degrees
+  // (valid values in microseconds are handled as microseconds)
+  this.analogWrite.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.setSamplingInterval" id="apidoc.element.firmata.Board.prototype.setSamplingInterval">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>setSamplingInterval
+        <span class="apidocSignatureSpan">(interval)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setSamplingInterval = function (interval) {
+  var safeint = interval &lt; 10 ? 10 : (interval &gt; 65535 ? 65535 : interval);
+  this.settings.samplingInterval = safeint;
+  writeToTransport(this, [
+    START_SYSEX,
+    SAMPLING_INTERVAL,
+    (safeint &amp; 0x7F),
+    ((safeint &gt;&gt; 7) &amp; 0x7F),
+    END_SYSEX
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.stepperConfig" id="apidoc.element.firmata.Board.prototype.stepperConfig">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>stepperConfig
+        <span class="apidocSignatureSpan">(deviceNum, type, stepsPerRev, dirOrMotor1Pin, stepOrMotor2Pin, motor3Pin, motor4Pin)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stepperConfig = function (deviceNum, type, stepsPerRev, dirOrMotor1Pin, stepOrMotor2Pin, motor3Pin, motor4Pin) {
+  var data = [
+    START_SYSEX,
+    STEPPER,
+    0x00, // STEPPER_CONFIG from firmware
+    deviceNum,
+    type,
+    stepsPerRev &amp; 0x7F, (stepsPerRev &gt;&gt; 7) &amp; 0x7F,
+    dirOrMotor1Pin,
+    stepOrMotor2Pin,
+  ];
+  if (type === this.STEPPER.TYPE.FOUR_WIRE) {
+    data.push(motor3Pin, motor4Pin);
+  }
+  data.push(END_SYSEX);
+  writeToTransport(this, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.stepperStep" id="apidoc.element.firmata.Board.prototype.stepperStep">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>stepperStep
+        <span class="apidocSignatureSpan">(deviceNum, direction, steps, speed, accel, decel, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stepperStep = function (deviceNum, direction, steps, speed, accel, decel, callback) {
+  if (typeof accel === "function") {
+    callback = accel;
+    accel = 0;
+    decel = 0;
+  }
+
+  var data = [
+    START_SYSEX,
+    STEPPER,
+    0x01, // STEPPER_STEP from firmware
+    deviceNum,
+    direction, // one of this.STEPPER.DIRECTION.*
+    steps &amp; 0x7F, (steps &gt;&gt; 7) &amp; 0x7F, (steps &gt;&gt; 14) &amp; 0x7f,
+    speed &amp; 0x7F, (speed &gt;&gt; 7) &amp; 0x7F
+  ];
+  if (accel &gt; 0 || decel &gt; 0) {
+    data.push(
+      accel &amp; 0x7F, (accel &gt;&gt; 7) &amp; 0x7F,
+      decel &amp; 0x7F, (decel &gt;&gt; 7) &amp; 0x7F
+    );
+  }
+  data.push(END_SYSEX);
+  writeToTransport(this, data);
+  this.once("stepper-done-" + deviceNum, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sysexCommand" id="apidoc.element.firmata.Board.prototype.sysexCommand">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sysexCommand
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sysexCommand = function (message) {
+
+  if (!message || !message.length) {
+    throw new Error("Sysex Command cannot be empty");
+  }
+
+  var data = message.slice();
+
+  data.unshift(START_SYSEX);
+  data.push(END_SYSEX);
+
+  writeToTransport(this, data);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+- `board.sysexResponse(commandByte, handler)`
+
+  Allow user code to handle arbitrary sysex responses. `commandByte` must be associated with some message that's expected from
+ the slave device. The `handler` is called with an array of _raw_ data from the slave. Data decoding must be done within the handler
+ itself.
+
+  - Use `Board.decode(data)` to extract useful values from the incoming response data.
+
+- `board.<span class="apidocCodeKeywordSpan">sysexCommand</span>(message)`
+
+  Allow user code to send arbitrary sysex messages. The `message` array is expected to be all necessary bytes between START_SYSEX
+ and END_SYSEX (non-inclusive). It will be assumed that the data in the message array is already encoded as 2 7-bit bytes LSB first
+.
+
+  - Use `Board.encode(data)` to encode data values into an array of 7 bit byte pairs.
+
+
+### Encode/Decode
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.Board.prototype.sysexResponse" id="apidoc.element.firmata.Board.prototype.sysexResponse">
+        function <span class="apidocSignatureSpan">firmata.Board.prototype.</span>sysexResponse
+        <span class="apidocSignatureSpan">(commandByte, handler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sysexResponse = function (commandByte, handler) {
+  if (Board.SYSEX_RESPONSE[commandByte]) {
+    throw new Error(commandByte + " is not an available SYSEX_RESPONSE byte");
+  }
+
+  Board.SYSEX_RESPONSE[commandByte] = function(board) {
+    handler(board.currentBuffer.slice(2, -1));
+  };
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `board.serialListen(portId)`
+
+  **For SoftwareSerial only**. Only a single SoftwareSerial instance can read data at a time. Call this method to set this port
+to be the reading port in the case there are multiple SoftwareSerial instances.
+
+
+### Sysex
+
+- `board.<span class="apidocCodeKeywordSpan">sysexResponse</span>(commandByte, handler)`
+
+  Allow user code to handle arbitrary sysex responses. `commandByte` must be associated with some message that's expected from
+ the slave device. The `handler` is called with an array of _raw_ data from the slave. Data decoding must be done within the handler
+ itself.
+
+  - Use `Board.decode(data)` to extract useful values from the incoming response data.
+
+- `board.sysexCommand(message)`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata.MIDI_RESPONSE" id="apidoc.module.firmata.MIDI_RESPONSE">module firmata.MIDI_RESPONSE</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.MIDI_RESPONSE.144" id="apidoc.element.firmata.MIDI_RESPONSE.144">
+        function <span class="apidocSignatureSpan">firmata.MIDI_RESPONSE.</span>144
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">144 = function (board) {
+  var port = (board.currentBuffer[0] &amp; 0x0F);
+  var portValue = board.currentBuffer[1] | (board.currentBuffer[2] &lt;&lt; 7);
+
+  for (var i = 0; i &lt; 8; i++) {
+    var pinNumber = 8 * port + i;
+    var pin = board.pins[pinNumber];
+    var bit = 1 &lt;&lt; i;
+
+    if (pin &amp;&amp; (pin.mode === board.MODES.INPUT || pin.mode === board.MODES.PULLUP)) {
+      pin.value = (portValue &gt;&gt; (i &amp; 0x07)) &amp; 0x01;
+
+      if (pin.value) {
+        board.ports[port] |= bit;
+      } else {
+        board.ports[port] &amp;= ~bit;
+      }
+
+      board.emit("digital-read-" + pinNumber, pin.value);
+      board.emit("digital-read", {
+        pin: pinNumber,
+        value: pin.value,
+      });
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.MIDI_RESPONSE.224" id="apidoc.element.firmata.MIDI_RESPONSE.224">
+        function <span class="apidocSignatureSpan">firmata.MIDI_RESPONSE.</span>224
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">224 = function (board) {
+  var pin = board.currentBuffer[0] &amp; 0x0F;
+  var value = board.currentBuffer[1] | (board.currentBuffer[2] &lt;&lt; 7);
+
+<span class="apidocCodeCommentSpan">  /* istanbul ignore else */
+</span>  if (board.pins[board.analogPins[pin]]) {
+    board.pins[board.analogPins[pin]].value = value;
+  }
+
+  board.emit("analog-read-" + pin, value);
+  board.emit("analog-read", {
+    pin: pin,
+    value: value,
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.MIDI_RESPONSE.249" id="apidoc.element.firmata.MIDI_RESPONSE.249">
+        function <span class="apidocSignatureSpan">firmata.MIDI_RESPONSE.</span>249
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">249 = function (board) {
+  board.version.major = board.currentBuffer[1];
+  board.version.minor = board.currentBuffer[2];
+  board.emit("reportversion");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata.SYSEX_RESPONSE" id="apidoc.module.firmata.SYSEX_RESPONSE">module firmata.SYSEX_RESPONSE</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.106" id="apidoc.element.firmata.SYSEX_RESPONSE.106">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>106
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">106 = function (board) {
+  var pin = 0;
+  var currentValue;
+  for (var i = 2; i &lt; board.currentBuffer.length - 1; i++) {
+    currentValue = board.currentBuffer[i];
+    board.pins[pin].analogChannel = currentValue;
+    if (currentValue !== 127) {
+      board.analogPins.push(pin);
+    }
+    pin++;
+  }
+  board.emit("analog-mapping-query");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.108" id="apidoc.element.firmata.SYSEX_RESPONSE.108">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>108
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">108 = function (board) {
+  var mode, resolution;
+  var modes = Object.keys(board.MODES).map(function(key) {
+    return board.MODES[key];
+  });
+  var capability = 0;
+
+  function supportedModes(capability) {
+    return modes.reduce(function(accum, mode, index) {
+      if (capability &amp; (1 &lt;&lt; mode)) {
+        accum.push(mode);
+      }
+      return accum;
+    }, []);
+  }
+
+  // Only create pins if none have been previously created on the instance.
+  if (!board.pins.length) {
+    for (var i = 2, n = 0; i &lt; board.currentBuffer.length - 1; i++) {
+      if (board.currentBuffer[i] === 127) {
+        board.pins.push({
+          supportedModes: supportedModes(capability),
+          mode: undefined,
+          value: 0,
+          report: 1,
+        });
+        capability = 0;
+        n = 0;
+        continue;
+      }
+      if (n === 0) {
+        mode = board.currentBuffer[i];
+        resolution = (1 &lt;&lt; board.currentBuffer[i + 1]) - 1;
+        capability |= (1 &lt;&lt; mode);
+
+        // ADC Resolution of Analog Inputs
+        if (mode === board.MODES.ANALOG &amp;&amp; board.RESOLUTION.ADC === null) {
+          board.RESOLUTION.ADC = resolution;
+        }
+
+        // PWM Resolution of PWM Outputs
+        if (mode === board.MODES.PWM &amp;&amp; board.RESOLUTION.PWM === null) {
+          board.RESOLUTION.PWM = resolution;
+        }
+
+        // DAC Resolution of DAC Outputs
+        // if (mode === board.MODES.DAC &amp;&amp; board.RESOLUTION.DAC === null) {
+        //   board.RESOLUTION.DAC = resolution;
+        // }
+      }
+      n ^= 1;
+    }
+  }
+
+  board.emit("capability-query");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.110" id="apidoc.element.firmata.SYSEX_RESPONSE.110">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>110
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">110 = function (board) {
+  var pin = board.currentBuffer[2];
+  board.pins[pin].mode = board.currentBuffer[3];
+  board.pins[pin].state = board.currentBuffer[4];
+  if (board.currentBuffer.length &gt; 6) {
+    board.pins[pin].state |= (board.currentBuffer[5] &lt;&lt; 7);
+  }
+  if (board.currentBuffer.length &gt; 7) {
+    board.pins[pin].state |= (board.currentBuffer[6] &lt;&lt; 14);
+  }
+  board.emit("pin-state-" + pin);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.113" id="apidoc.element.firmata.SYSEX_RESPONSE.113">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>113
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">113 = function (board) {
+  var string = new Buffer(board.currentBuffer.slice(2, -1)).toString("utf8").replace(/\0/g, "");
+  board.emit("string", string);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.114" id="apidoc.element.firmata.SYSEX_RESPONSE.114">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>114
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">114 = function (board) {
+  var deviceNum = board.currentBuffer[2];
+  board.emit("stepper-done-" + deviceNum, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.115" id="apidoc.element.firmata.SYSEX_RESPONSE.115">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>115
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">115 = function (board) {
+  var subCommand = board.currentBuffer[2];
+
+  if (!SYSEX_RESPONSE[subCommand]) {
+    return;
+  }
+
+  SYSEX_RESPONSE[subCommand](board);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.117" id="apidoc.element.firmata.SYSEX_RESPONSE.117">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>117
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">117 = function (board) {
+  var pin = (board.currentBuffer[2] &amp; 0x7F) | ((board.currentBuffer[3] &amp; 0x7F) &lt;&lt; 7);
+  var durationBuffer = [
+    (board.currentBuffer[4] &amp; 0x7F) | ((board.currentBuffer[5] &amp; 0x7F) &lt;&lt; 7),
+    (board.currentBuffer[6] &amp; 0x7F) | ((board.currentBuffer[7] &amp; 0x7F) &lt;&lt; 7),
+    (board.currentBuffer[8] &amp; 0x7F) | ((board.currentBuffer[9] &amp; 0x7F) &lt;&lt; 7),
+    (board.currentBuffer[10] &amp; 0x7F) | ((board.currentBuffer[11] &amp; 0x7F) &lt;&lt; 7),
+  ];
+  var duration = ((durationBuffer[0] &lt;&lt; 24) +
+    (durationBuffer[1] &lt;&lt; 16) +
+    (durationBuffer[2] &lt;&lt; 8) +
+    (durationBuffer[3]));
+  board.emit("ping-read-" + pin, duration);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.119" id="apidoc.element.firmata.SYSEX_RESPONSE.119">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>119
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">119 = function (board) {
+  var reply = [];
+  var address = (board.currentBuffer[2] &amp; 0x7F) | ((board.currentBuffer[3] &amp; 0x7F) &lt;&lt; 7);
+  var register = (board.currentBuffer[4] &amp; 0x7F) | ((board.currentBuffer[5] &amp; 0x7F) &lt;&lt; 7);
+
+  for (var i = 6, length = board.currentBuffer.length - 1; i &lt; length; i += 2) {
+    reply.push(board.currentBuffer[i] | (board.currentBuffer[i + 1] &lt;&lt; 7));
+  }
+
+  board.emit("I2C-reply-" + address + "-" + register, reply);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.121" id="apidoc.element.firmata.SYSEX_RESPONSE.121">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>121
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">121 = function (board) {
+  var length = board.currentBuffer.length - 2;
+  var buffer = new Buffer(Math.round((length - 4) / 2));
+  var byte = 0;
+  var offset = 0;
+
+  for (var i = 4; i &lt; length; i += 2) {
+    byte = ((board.currentBuffer[i] &amp; 0x7F) | ((board.currentBuffer[i + 1] &amp; 0x7F) &lt;&lt; 7)) &amp; 0xFF;
+    buffer.writeUInt8(byte, offset++);
+  }
+
+  board.firmware = {
+    name: buffer.toString(),
+    version: {
+      major: board.currentBuffer[2],
+      minor: board.currentBuffer[3],
+    },
+  };
+
+  board.emit("queryfirmware");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.66" id="apidoc.element.firmata.SYSEX_RESPONSE.66">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>66
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">66 = function (board) {
+  var pin = board.currentBuffer[3];
+  var replyBuffer = board.currentBuffer.slice(4, board.currentBuffer.length - 1);
+
+  board.emit("1-wire-search-reply-" + pin, OneWireUtils.readDevices(replyBuffer));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.67" id="apidoc.element.firmata.SYSEX_RESPONSE.67">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>67
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">67 = function (board) {
+  var encoded = board.currentBuffer.slice(4, board.currentBuffer.length - 1);
+  var decoded = Encoder7Bit.from7BitArray(encoded);
+  var correlationId = (decoded[1] &lt;&lt; 8) | decoded[0];
+
+  board.emit("1-wire-read-reply-" + correlationId, decoded.slice(2));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.69" id="apidoc.element.firmata.SYSEX_RESPONSE.69">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>69
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">69 = function (board) {
+  var pin = board.currentBuffer[3];
+  var replyBuffer = board.currentBuffer.slice(4, board.currentBuffer.length - 1);
+
+  board.emit("1-wire-search-alarms-reply-" + pin, OneWireUtils.readDevices(replyBuffer));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.SYSEX_RESPONSE.96" id="apidoc.element.firmata.SYSEX_RESPONSE.96">
+        function <span class="apidocSignatureSpan">firmata.SYSEX_RESPONSE.</span>96
+        <span class="apidocSignatureSpan">(board)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">96 = function (board) {
+  var command = board.currentBuffer[2] &amp; 0xF0;
+  var portId = board.currentBuffer[2] &amp; 0x0F;
+  var reply = [];
+
+<span class="apidocCodeCommentSpan">  /* istanbul ignore else */
+</span>  if (command === SERIAL_REPLY) {
+    for (var i = 3, len = board.currentBuffer.length; i &lt; len - 1; i += 2) {
+      reply.push((board.currentBuffer[i + 1] &lt;&lt; 7) | board.currentBuffer[i]);
+    }
+    board.emit("serial-data-" + portId, reply);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata.com" id="apidoc.module.firmata.com">module firmata.com</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.com.SerialPort" id="apidoc.element.firmata.com.SerialPort">
+        function <span class="apidocSignatureSpan">firmata.com.</span>SerialPort
+        <span class="apidocSignatureSpan">(path, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SerialPort(path, options, callback) {
+  if (typeof callback === 'boolean') {
+    throw new TypeError('`openImmediately` is now called `autoOpen` and is a property of options');
+  }
+
+  if (typeof options === 'function') {
+    callback = options;
+    options = {};
+  }
+
+  options = options || {};
+
+  stream.Stream.call(this);
+
+  if (!path) {
+    throw new TypeError('No path specified');
+  }
+
+  this.path = path;
+
+  var correctedOptions = correctOptions(options);
+  var settings = assign({}, defaultSettings, correctedOptions);
+
+  if (typeof settings.baudRate !== 'number') {
+    throw new TypeError('Invalid "baudRate" must be a number got: ' + settings.baudRate);
+  }
+
+  if (DATABITS.indexOf(settings.dataBits) === -1) {
+    throw new TypeError('Invalid "databits": ' + settings.dataBits);
+  }
+
+  if (STOPBITS.indexOf(settings.stopBits) === -1) {
+    throw new TypeError('Invalid "stopbits": ' + settings.stopbits);
+  }
+
+  if (PARITY.indexOf(settings.parity) === -1) {
+    throw new TypeError('Invalid "parity": ' + settings.parity);
+  }
+
+  FLOWCONTROLS.forEach(function(control) {
+    if (typeof settings[control] !== 'boolean') {
+      throw new TypeError('Invalid "' + control + '" is not boolean');
+    }
+  });
+
+  settings.disconnectedCallback = this._disconnected.bind(this);
+  settings.dataCallback = settings.parser.bind(this, this);
+
+  this.fd = null;
+  this.paused = true;
+  this.opening = false;
+  this.closing = false;
+
+  if (process.platform !== 'win32') {
+    this.bufferSize = settings.bufferSize;
+    this.readable = true;
+    this.reading = false;
+  }
+
+  this.options = settings;
+
+  if (this.options.autoOpen) {
+    // is nextTick necessary?
+    process.nextTick(this.open.bind(this, callback));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.com.list" id="apidoc.element.firmata.com.list">
+        function <span class="apidocSignatureSpan">firmata.com.</span>list
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listLinux(callback) {
+  callback = callback || function(err) {
+    if (err) { this.emit('error', err) }
+  }.bind(this);
+  return listUnix(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata.encoder7bit" id="apidoc.module.firmata.encoder7bit">module firmata.encoder7bit</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.encoder7bit.from7BitArray" id="apidoc.element.firmata.encoder7bit.from7BitArray">
+        function <span class="apidocSignatureSpan">firmata.encoder7bit.</span>from7BitArray
+        <span class="apidocSignatureSpan">(encoded)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">from7BitArray = function (encoded) {
+  var expectedBytes = (encoded.length) * 7 &gt;&gt; 3;
+  var decoded = [];
+
+  for (var i = 0; i &lt; expectedBytes; i++) {
+    var j = i &lt;&lt; 3;
+    var pos = parseInt(j / 7, 10);
+    var shift = j % 7;
+    decoded[i] = (encoded[pos] &gt;&gt; shift) | ((encoded[pos + 1] &lt;&lt; (7 - shift)) &amp; 0xFF);
+  }
+
+  return decoded;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  inbyte &gt;&gt;= 1;
+}
+    }
+    return crc;
+  },
+
+  readDevices: function(data) {
+    var deviceBytes = Encoder7Bit.<span class="apidocCodeKeywordSpan">from7BitArray</span>(data);
+    var devices = [];
+
+    for (var i = 0; i &lt; deviceBytes.length; i += 8) {
+var device = deviceBytes.slice(i, i + 8);
+
+if (device.length !== 8) {
+  continue;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.encoder7bit.to7BitArray" id="apidoc.element.firmata.encoder7bit.to7BitArray">
+        function <span class="apidocSignatureSpan">firmata.encoder7bit.</span>to7BitArray
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">to7BitArray = function (data) {
+  var shift = 0;
+  var previous = 0;
+  var output = [];
+
+  data.forEach(function(byte) {
+    if (shift === 0) {
+      output.push(byte &amp; 0x7f);
+      shift++;
+      previous = byte &gt;&gt; 7;
+    } else {
+      output.push(((byte &lt;&lt; shift) &amp; 0x7f) | previous);
+      if (shift === 6) {
+        output.push(byte &gt;&gt; 1);
+        shift = 0;
+      } else {
+        shift++;
+        previous = byte &gt;&gt; (8 - shift);
+      }
+    }
+  });
+
+  if (shift &gt; 0) {
+    output.push(previous);
+  }
+
+  return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.firmata.onewireutils" id="apidoc.module.firmata.onewireutils">module firmata.onewireutils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.onewireutils.crc8" id="apidoc.element.firmata.onewireutils.crc8">
+        function <span class="apidocSignatureSpan">firmata.onewireutils.</span>crc8
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">crc8 = function (data) {
+  var crc = 0;
+
+  for (var i = 0; i &lt; data.length; i++) {
+    var inbyte = data[i];
+
+    for (var n = 8; n; n--) {
+      var mix = (crc ^ inbyte) &amp; 0x01;
+      crc &gt;&gt;= 1;
+
+      if (mix) {
+        crc ^= 0x8C;
+      }
+
+      inbyte &gt;&gt;= 1;
+    }
+  }
+  return crc;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+for (var i = 0; i &lt; deviceBytes.length; i += 8) {
+  var device = deviceBytes.slice(i, i + 8);
+
+  if (device.length !== 8) {
+    continue;
+  }
+
+  var check = OneWireUtils.<span class="apidocCodeKeywordSpan">crc8</span>(device.slice(0, 7));
+
+  if (check !== device[7]) {
+    console.error("ROM invalid!");
+  }
+
+  devices.push(device);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.firmata.onewireutils.readDevices" id="apidoc.element.firmata.onewireutils.readDevices">
+        function <span class="apidocSignatureSpan">firmata.onewireutils.</span>readDevices
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readDevices = function (data) {
+  var deviceBytes = Encoder7Bit.from7BitArray(data);
+  var devices = [];
+
+  for (var i = 0; i &lt; deviceBytes.length; i += 8) {
+    var device = deviceBytes.slice(i, i + 8);
+
+    if (device.length !== 8) {
+      continue;
+    }
+
+    var check = OneWireUtils.crc8(device.slice(0, 7));
+
+    if (check !== device[7]) {
+      console.error("ROM invalid!");
+    }
+
+    devices.push(device);
+  }
+
+  return devices;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
