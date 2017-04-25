@@ -1397,7 +1397,23 @@ Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
 
   return false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Board.requestPort(callback) Request an acceptable port to connect to.
+ * callback(error, port)
+ */
+
+Board.requestPort = function(callback) {
+  com.list(function(error, ports) {
+var port = ports.find(function(port) {
+  if (Board.<span class="apidocCodeKeywordSpan">isAcceptablePort</span>(port)) {
+    return port;
+  }
+});
+
+if (port) {
+  callback(null, port);
+} else {
+...</pre></li>
     </ul>
 
 
@@ -1424,7 +1440,23 @@ Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
     }
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+
+
+var Board = require("../");
+
+Board.<span class="apidocCodeKeywordSpan">requestPort</span>(function(error, port) {
+if (error) {
+  console.log(error);
+  return;
+}
+
+var register = {
+  POWER: 0x2D,
+...</pre></li>
     </ul>
 
 
@@ -1761,7 +1793,23 @@ Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
 
   return false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Board.requestPort(callback) Request an acceptable port to connect to.
+ * callback(error, port)
+ */
+
+Board.requestPort = function(callback) {
+  com.list(function(error, ports) {
+var port = ports.find(function(port) {
+  if (Board.<span class="apidocCodeKeywordSpan">isAcceptablePort</span>(port)) {
+    return port;
+  }
+});
+
+if (port) {
+  callback(null, port);
+} else {
+...</pre></li>
     </ul>
 
 
@@ -1788,7 +1836,23 @@ Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
     }
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+
+
+var Board = require("../");
+
+Board.<span class="apidocCodeKeywordSpan">requestPort</span>(function(error, port) {
+if (error) {
+  console.log(error);
+  return;
+}
+
+var register = {
+  POWER: 0x2D,
+...</pre></li>
     </ul>
 
 
@@ -1853,7 +1917,24 @@ Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
     this.once(event, callback);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Board.prototype.sendOneWireRead = function(pin, device, numBytesToRead, callback) {
+ var correlationId = Math.floor(Math.random() * 255);
+ /* istanbul ignore next */
+ var readTimeout = setTimeout(function() {
+   /* istanbul ignore next */
+   callback(new Error("1-Wire device read timeout - are you running ConfigurableFirmata?"));
+ }, 5000);
+ this.<span class="apidocCodeKeywordSpan">_sendOneWireRequest</span>(pin, ONEWIRE_READ_REQUEST_BIT, device, numBytesToRead, correlationId
+, null, null, "1-wire-read-reply-" + correlationId, function(data) {
+   clearTimeout(readTimeout);
+   callback(null, data);
+ });
+};
+
+/**
+* Resets all devices on the bus.
+...</pre></li>
     </ul>
 
 
@@ -1877,7 +1958,24 @@ Encode an array of 8 bit data values as two 7 bit byte pairs (each). (LSB first)
     callback(null, devices);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Searches for 1-wire devices on the bus.  The passed callback should accept
+* and error argument and an array of device identifiers.
+* @param pin
+* @param callback
+*/
+
+Board.prototype.sendOneWireSearch = function(pin, callback) {
+ this.<span class="apidocCodeKeywordSpan">_sendOneWireSearch</span>(ONEWIRE_SEARCH_REQUEST, "1-wire-search-reply-" + pin
+, pin, callback);
+};
+
+/**
+* Searches for 1-wire devices on the bus in an alarmed state.  The passed callback
+* should accept and error argument and an array of device identifiers.
+* @param pin
+* @param callback
+...</pre></li>
     </ul>
 
 
@@ -1958,7 +2056,21 @@ To stop reporting analog values for a pin, call `board.reportAnalogPin(analogPin
 
   writeToTransport(this, data);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // var analogs = [0, 1, 2, 3, 4, 5];
+    var analogs = [3];
+
+    analogs.forEach(function(pin) {
+      pin = +pin;
+      this.pinMode(pin, this.MODES.ANALOG);
+      this.analogRead(pin, function(value) {
+        this.<span class="apidocCodeKeywordSpan">analogWrite</span>(a, value &gt;&gt; 2);
+      });
+    }, this);
+
+  });
+});
+...</pre></li>
     </ul>
 
 
@@ -2023,7 +2135,19 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
     (this.ports[port] &gt;&gt; 7) &amp; 0x7F
   ]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  board.on("ready", function() {
+    var pin = 13;
+    var state = 1;
+
+    board.pinMode(pin, board.MODES.OUTPUT);
+
+    setInterval(function() {
+      board.<span class="apidocCodeKeywordSpan">digitalWrite</span>(pin, (state ^= 1));
+    }, 500);
+  });
+});
+...</pre></li>
     </ul>
 
 
@@ -2107,7 +2231,23 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  board.on("ready", function() {
+console.log("Ready");
+
+var adxl345 = 0x53;
+var sensitivity = 0.00390625;
+
+// Enable I2C
+this.<span class="apidocCodeKeywordSpan">i2cConfig</span>();
+
+// Toggle power to reset
+this.i2cWrite(adxl345, register.POWER, 0);
+this.i2cWrite(adxl345, register.POWER, 8);
+
+// Set range (this is 2G range)
+this.i2cWrite(adxl345, register.RANGE, 8);
+...</pre></li>
     </ul>
 
 
@@ -2158,7 +2298,23 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    this.i2cWrite(adxl345, register.POWER, 0);
+    this.i2cWrite(adxl345, register.POWER, 8);
+
+    // Set range (this is 2G range)
+    this.i2cWrite(adxl345, register.RANGE, 8);
+
+    // Set register to READ position and request 6 bytes
+    this.<span class="apidocCodeKeywordSpan">i2cRead</span>(adxl345, register.READ, 6, function(data) {
+var x = (data[1] &lt;&lt; 8) | data[0];
+var y = (data[3] &lt;&lt; 8) | data[2];
+var z = (data[5] &lt;&lt; 8) | data[4];
+
+// Wrap and clamp 16 bits;
+var X = (x &gt;&gt; 15 ? ((x ^ 0xFFFF) + 1) * -1 : x) * sensitivity;
+var Y = (y &gt;&gt; 15 ? ((y ^ 0xFFFF) + 1) * -1 : y) * sensitivity;
+...</pre></li>
     </ul>
 
 
@@ -2209,7 +2365,23 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    stopTX: false,
+  },
+};
+
+this.i2cConfig(options);
+
+function mode(which, callback) {
+  board.<span class="apidocCodeKeywordSpan">i2cReadOnce</span>(mma8452, register.CTRL_REG1, 1, function(data) {
+    var value = data[0];
+    if (which === "standby") {
+      // Clear the first bit
+      value &amp;= ~1;
+    } else {
+      // Set the first bit
+      value |= 1;
+...</pre></li>
     </ul>
 
 
@@ -2313,7 +2485,23 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var adxl345 = 0x53;
+var sensitivity = 0.00390625;
+
+// Enable I2C
+this.i2cConfig();
+
+// Toggle power to reset
+this.<span class="apidocCodeKeywordSpan">i2cWrite</span>(adxl345, register.POWER, 0);
+this.i2cWrite(adxl345, register.POWER, 8);
+
+// Set range (this is 2G range)
+this.i2cWrite(adxl345, register.RANGE, 8);
+
+// Set register to READ position and request 6 bytes
+this.i2cRead(adxl345, register.READ, 6, function(data) {
+...</pre></li>
     </ul>
 
 
@@ -2340,7 +2528,23 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+];
+
+// If i2cWrite was used for an i2cWriteReg call...
+if (arguments.length === 3 &amp;&amp;
+    !Array.isArray(registerOrData) &amp;&amp;
+    !Array.isArray(inBytes)) {
+
+  return this.<span class="apidocCodeKeywordSpan">i2cWriteReg</span>(address, registerOrData, inBytes);
+}
+
+// Fix arguments if called with Firmata.js API
+if (arguments.length === 2) {
+  if (Array.isArray(registerOrData)) {
+    inBytes = registerOrData.slice();
+    registerOrData = inBytes.shift();
+...</pre></li>
     </ul>
 
 
@@ -2356,7 +2560,22 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
   this.pins[pin].mode = mode;
   writeToTransport(this, [PIN_MODE, pin, mode]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var board = new Board(port.comName);
+
+  board.on("ready", function() {
+    var pin = 13;
+    var state = 1;
+
+    board.<span class="apidocCodeKeywordSpan">pinMode</span>(pin, board.MODES.OUTPUT);
+
+    setInterval(function() {
+      board.digitalWrite(pin, (state ^= 1));
+    }, 500);
+  });
+});
+...</pre></li>
     </ul>
 
 
@@ -2468,7 +2687,23 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
   this.once("analog-mapping-query", callback);
   writeToTransport(this, [START_SYSEX, ANALOG_MAPPING_QUERY, END_SYSEX]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        //
+        this.RESOLUTION.ADC = 0x3FF;
+        this.RESOLUTION.PWM = 0x0FF;
+
+        ready();
+      } else {
+        this.queryCapabilities(function() {
+          this.<span class="apidocCodeKeywordSpan">queryAnalogMapping</span>(ready);
+        });
+      }
+    });
+  });
+}
+
+Board.prototype = Object.create(Emitter.prototype, {
+...</pre></li>
     </ul>
 
 
@@ -2484,7 +2719,22 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
   this.once("capability-query", callback);
   writeToTransport(this, [START_SYSEX, CAPABILITY_QUERY, END_SYSEX]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        // Based on ATmega328/P
+        //
+        this.RESOLUTION.ADC = 0x3FF;
+        this.RESOLUTION.PWM = 0x0FF;
+
+        ready();
+      } else {
+        this.<span class="apidocCodeKeywordSpan">queryCapabilities</span>(function() {
+          this.queryAnalogMapping(ready);
+        });
+      }
+    });
+  });
+}
+...</pre></li>
     </ul>
 
 
@@ -2500,7 +2750,23 @@ To stop reporting digital values for a pin, call `board.reportDigitalPin(digital
   this.once("queryfirmware", callback);
   writeToTransport(this, [START_SYSEX, QUERY_FIRMWARE, END_SYSEX]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// if we have not received the version within the alotted
+// time specified by the reportVersionTimeout (user or default),
+// then send an explicit request for it.
+this.reportVersionTimeoutId = setTimeout(function() {
+  /* istanbul ignore else */
+  if (this.versionReceived === false) {
+    this.reportVersion(function() {});
+    this.<span class="apidocCodeKeywordSpan">queryFirmware</span>(function() {});
+  }
+}.bind(this), settings.reportVersionTimeout);
+
+function ready() {
+  board.isReady = true;
+  board.emit("ready");
+  /* istanbul ignore else */
+...</pre></li>
     </ul>
 
 
@@ -2609,7 +2875,23 @@ Write an output to an analog pin (PWM). pin is the number of the pin and the val
   this.once("reportversion", callback);
   writeToTransport(this, [REPORT_VERSION]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// if we have not received the version within the alotted
+// time specified by the reportVersionTimeout (user or default),
+// then send an explicit request for it.
+this.reportVersionTimeoutId = setTimeout(function() {
+  /* istanbul ignore else */
+  if (this.versionReceived === false) {
+    this.<span class="apidocCodeKeywordSpan">reportVersion</span>(function() {});
+    this.queryFirmware(function() {});
+  }
+}.bind(this), settings.reportVersionTimeout);
+
+function ready() {
+  board.isReady = true;
+  board.emit("ready");
+...</pre></li>
     </ul>
 
 
@@ -3240,7 +3522,23 @@ Close the specified serial port.
     END_SYSEX,
   ]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var board = new Board("/dev/tty.usbmodem1421");
+
+board.on("ready", function() {
+var degrees = 10;
+var incrementer = 10;
+
+// This will map 0-180 to 1000-1500
+board.<span class="apidocCodeKeywordSpan">servoConfig</span>(9, 1000, 1500);
+board.servoWrite(9, 0);
+
+setInterval(function() {
+  if (degrees &gt;= 180 || degrees === 0) {
+    incrementer *= -1;
+  }
+  degrees += incrementer;
+...</pre></li>
     </ul>
 
 
@@ -3257,7 +3555,23 @@ Close the specified serial port.
   // (valid values in microseconds are handled as microseconds)
   this.analogWrite.apply(this, arguments);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+board.on("ready", function() {
+var degrees = 10;
+var incrementer = 10;
+
+// This will map 0-180 to 1000-1500
+board.servoConfig(9, 1000, 1500);
+board.<span class="apidocCodeKeywordSpan">servoWrite</span>(9, 0);
+
+setInterval(function() {
+  if (degrees &gt;= 180 || degrees === 0) {
+    incrementer *= -1;
+  }
+  degrees += incrementer;
+  board.servoWrite(9, degrees);
+...</pre></li>
     </ul>
 
 
@@ -3280,7 +3594,23 @@ Close the specified serial port.
     END_SYSEX
   ]);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    clearTimeout(this.reportVersionTimeoutId);
+    this.versionReceived = true;
+    this.once("queryfirmware", function() {
+
+// Only preemptively set the sampling interval if `samplingInterval`
+// property was _explicitly_ set as a constructor option.
+if (options.samplingInterval !== undefined) {
+  this.<span class="apidocCodeKeywordSpan">setSamplingInterval</span>(options.samplingInterval);
+}
+if (settings.skipCapabilities) {
+  this.analogPins = settings.analogPins || this.analogPins;
+  this.pins = settings.pins || this.pins;
+  /* istanbul ignore else */
+  if (!this.pins.length) {
+    for (var i = 0; i &lt; (settings.pinCount || MAX_PIN_COUNT); i++) {
+...</pre></li>
     </ul>
 
 
@@ -3941,7 +4271,23 @@ to be the reading port in the case there are multiple SoftwareSerial instances.
     process.nextTick(this.open.bind(this, callback));
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.name = "Firmata";
+this.settings = settings;
+this.pending = 0;
+
+if (typeof port === "object") {
+  this.transport = port;
+} else {
+  this.transport = new com.<span class="apidocCodeKeywordSpan">SerialPort</span>(port, settings.serialport);
+}
+
+// For backward compat
+this.sp = this.transport;
+
+this.transport.on("close", function() {
+  this.emit("close");
+...</pre></li>
     </ul>
 
 
@@ -3959,7 +4305,22 @@ to be the reading port in the case there are multiple SoftwareSerial instances.
   }.bind(this);
   return listUnix(callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+var SerialPort = require("serialport");
+var five = require("johnny-five");
+var Firmata = require("../");
+
+SerialPort.<span class="apidocCodeKeywordSpan">list</span>(function(error, list) {
+var device = list.reduce(function(accum, item) {
+  if (item.manufacturer.indexOf("Arduino") === 0) {
+    return item;
+  }
+  return accum;
+}, null);
+...</pre></li>
     </ul>
 
 
@@ -3990,21 +4351,21 @@ to be the reading port in the case there are multiple SoftwareSerial instances.
   return decoded;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  inbyte &gt;&gt;= 1;
-}
-    }
-    return crc;
-  },
+ var replyBuffer = board.currentBuffer.slice(4, board.currentBuffer.length - 1);
 
-  readDevices: function(data) {
-    var deviceBytes = Encoder7Bit.<span class="apidocCodeKeywordSpan">from7BitArray</span>(data);
-    var devices = [];
+ board.emit("1-wire-search-alarms-reply-" + pin, OneWireUtils.readDevices(replyBuffer));
+};
 
-    for (var i = 0; i &lt; deviceBytes.length; i += 8) {
-var device = deviceBytes.slice(i, i + 8);
+SYSEX_RESPONSE[ONEWIRE_READ_REPLY] = function(board) {
+ var encoded = board.currentBuffer.slice(4, board.currentBuffer.length - 1);
+ var decoded = Encoder7Bit.<span class="apidocCodeKeywordSpan">from7BitArray</span>(encoded);
+ var correlationId = (decoded[1] &lt;&lt; 8) | decoded[0];
 
-if (device.length !== 8) {
-  continue;
+ board.emit("1-wire-read-reply-" + correlationId, decoded.slice(2));
+};
+
+/**
+* Handles a STRING_DATA response and logs the string to the console.
 ...</pre></li>
     </ul>
 
@@ -4045,7 +4406,23 @@ if (device.length !== 8) {
 
   return output;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (dataToWrite) {
+  dataToWrite.forEach(function(byte) {
+    bytes.push(byte);
+  });
+}
+
+var output = [START_SYSEX, ONEWIRE_DATA, subcommand, pin];
+output = output.concat(Encoder7Bit.<span class="apidocCodeKeywordSpan">to7BitArray</span>(bytes));
+output.push(END_SYSEX);
+
+writeToTransport(this, output);
+
+if (event &amp;&amp; callback) {
+  this.once(event, callback);
+}
+...</pre></li>
     </ul>
 
 
@@ -4131,7 +4508,24 @@ for (var i = 0; i &lt; deviceBytes.length; i += 8) {
 
   return devices;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SYSEX_RESPONSE[subCommand](board);
+};
+
+SYSEX_RESPONSE[ONEWIRE_SEARCH_REPLY] = function(board) {
+var pin = board.currentBuffer[3];
+var replyBuffer = board.currentBuffer.slice(4, board.currentBuffer.length - 1);
+
+board.emit("1-wire-search-reply-" + pin, OneWireUtils.<span class="apidocCodeKeywordSpan">readDevices</span>(replyBuffer
+));
+};
+
+SYSEX_RESPONSE[ONEWIRE_SEARCH_ALARMS_REPLY] = function(board) {
+var pin = board.currentBuffer[3];
+var replyBuffer = board.currentBuffer.slice(4, board.currentBuffer.length - 1);
+
+board.emit("1-wire-search-alarms-reply-" + pin, OneWireUtils.readDevices(replyBuffer));
+...</pre></li>
     </ul>
 
 
